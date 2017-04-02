@@ -1,0 +1,809 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>whykifan的博客</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://whykifan.tk/"/>
+  <updated>2017-04-02T12:29:14.780Z</updated>
+  <id>http://whykifan.tk/</id>
+  
+  <author>
+    <name>whykifan</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Alertdialog的简单使用</title>
+    <link href="http://whykifan.tk/Alertdialog%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8.html"/>
+    <id>http://whykifan.tk/Alertdialog的简单使用.html</id>
+    <published>2017-04-02T04:00:00.000Z</published>
+    <updated>2017-04-02T12:29:14.780Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;Alertdialog的简单使用&quot;&gt;&lt;a href=&quot;#Alertdialog的简单使用&quot; class=&quot;headerlink&quot; title=&quot;Alertdialog的简单使用&quot;&gt;&lt;/a&gt;Alertdialog的简单使用&lt;/h1&gt;&lt;p&gt;有时候我们需要在界面上显示出来一个对话框用来做一些提示信息，Alertdialog无疑是首选，实现简单&lt;br&gt;，而且功能丰富。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;基本的使用流程：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Step 1：创建AlertDialog.Builder对象；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Step 2：调用setIcon()设置图标，setTitle()或setCustomTitle()设置标题；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Step 3：设置对话框的内容：setMessage()还有其他方法来指定显示的内容；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Step 4：调用setPositive/Negative/NeutralButton()设置：确定，取消，中立按钮；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Step 5：调用create()方法创建这个对象，再调用show()方法将对话框显示出来；&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;　　一个简单的例子（&lt;a href=&quot;http://www.runoob.com/w3cnote/android-tutorial-alertdialog.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;来自于菜鸟窝&lt;/a&gt;）：&lt;/p&gt;
+&lt;p&gt;　　&lt;img src=&quot;http://www.runoob.com/wp-content/uploads/2015/09/79141888.jpg&quot; alt=&quot;来自于菜鸟窝&quot;&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;40&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;41&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;42&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;43&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;44&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;45&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;46&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;47&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;48&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;49&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;50&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;51&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;52&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;53&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;54&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;55&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;56&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;57&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;58&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;59&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;60&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;61&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;62&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;63&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;64&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;65&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;66&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;67&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;68&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;69&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;70&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;71&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;72&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;73&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;74&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;75&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;76&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;77&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;78&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;79&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;80&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;81&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;82&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;83&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;84&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;85&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;86&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;87&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;88&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;89&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;90&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;91&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;92&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;93&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;94&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;95&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;96&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;97&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;98&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;99&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;100&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;101&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;102&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;103&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;104&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;105&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;106&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;107&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;108&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;109&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;110&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;111&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;112&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;113&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;114&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;115&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;116&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;117&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;118&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;119&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;120&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;121&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;122&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;123&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;124&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;125&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;126&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;MainActivity&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;AppCompatActivity&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;View&lt;/span&gt;.&lt;span class=&quot;title&quot;&gt;OnClickListener&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; Button btn_dialog_one;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; Button btn_dialog_two;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; Button btn_dialog_three;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; Button btn_dialog_four;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; Context mContext;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;boolean&lt;/span&gt;[] checkItems;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; AlertDialog alert = &lt;span class=&quot;keyword&quot;&gt;null&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; AlertDialog.Builder builder = &lt;span class=&quot;keyword&quot;&gt;null&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;meta&quot;&gt;@Override&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(Bundle savedInstanceState)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;super&lt;/span&gt;.onCreate(savedInstanceState);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        setContentView(R.layout.activity_main);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        mContext = MainActivity.&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        bindView();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;bindView&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        btn_dialog_one = (Button) findViewById(R.id.btn_dialog_one);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        btn_dialog_two = (Button) findViewById(R.id.btn_dialog_two);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        btn_dialog_three = (Button) findViewById(R.id.btn_dialog_three);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        btn_dialog_four = (Button) findViewById(R.id.btn_dialog_four);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        btn_dialog_one.setOnClickListener(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        btn_dialog_two.setOnClickListener(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        btn_dialog_three.setOnClickListener(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        btn_dialog_four.setOnClickListener(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;meta&quot;&gt;@Override&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(View v)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;switch&lt;/span&gt; (v.getId()) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;comment&quot;&gt;//普通对话框&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;case&lt;/span&gt; R.id.btn_dialog_one:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                alert = &lt;span class=&quot;keyword&quot;&gt;null&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                builder = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; AlertDialog.Builder(mContext);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                alert = builder.setIcon(R.mipmap.ic_icon_fish)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        .setTitle(&lt;span class=&quot;string&quot;&gt;&quot;系统提示：&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        .setMessage(&lt;span class=&quot;string&quot;&gt;&quot;这是一个最普通的AlertDialog,\n带有三个按钮，分别是取消，中立和确定&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        .setNegativeButton(&lt;span class=&quot;string&quot;&gt;&quot;取消&quot;&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; DialogInterface.OnClickListener() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                            &lt;span class=&quot;meta&quot;&gt;@Override&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                            &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(DialogInterface dialog, &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; which)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                                Toast.makeText(mContext, &lt;span class=&quot;string&quot;&gt;&quot;你点击了取消按钮~&quot;&lt;/span&gt;, Toast.LENGTH_SHORT).show();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        &amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        .setPositiveButton(&lt;span class=&quot;string&quot;&gt;&quot;确定&quot;&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; DialogInterface.OnClickListener() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                            &lt;span class=&quot;meta&quot;&gt;@Override&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                            &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(DialogInterface dialog, &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; which)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                                Toast.makeText(mContext, &lt;span class=&quot;string&quot;&gt;&quot;你点击了确定按钮~&quot;&lt;/span&gt;, Toast.LENGTH_SHORT).show();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        &amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        .setNeutralButton(&lt;span class=&quot;string&quot;&gt;&quot;中立&quot;&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; DialogInterface.OnClickListener() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                            &lt;span class=&quot;meta&quot;&gt;@Override&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                            &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(DialogInterface dialog, &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; which)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                                Toast.makeText(mContext, &lt;span class=&quot;string&quot;&gt;&quot;你点击了中立按钮~&quot;&lt;/span&gt;, Toast.LENGTH_SHORT).show();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        &amp;#125;).create();             &lt;span class=&quot;comment&quot;&gt;//创建AlertDialog对象&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                alert.show();                    &lt;span class=&quot;comment&quot;&gt;//显示对话框&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;keyword&quot;&gt;break&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;comment&quot;&gt;//普通列表对话框&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;case&lt;/span&gt; R.id.btn_dialog_two:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;keyword&quot;&gt;final&lt;/span&gt; String[] lesson = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; String[]&amp;#123;&lt;span class=&quot;string&quot;&gt;&quot;语文&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;数学&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;英语&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;化学&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;生物&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;物理&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;体育&quot;&lt;/span&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                alert = &lt;span class=&quot;keyword&quot;&gt;null&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                builder = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; AlertDialog.Builder(mContext);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                alert = builder.setIcon(R.mipmap.ic_icon_fish)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        .setTitle(&lt;span class=&quot;string&quot;&gt;&quot;选择你喜欢的课程&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        .setItems(lesson, &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; DialogInterface.OnClickListener() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                            &lt;span class=&quot;meta&quot;&gt;@Override&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                            &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(DialogInterface dialog, &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; which)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                                Toast.makeText(getApplicationContext(), &lt;span class=&quot;string&quot;&gt;&quot;你选择了&quot;&lt;/span&gt; + lesson[which], Toast.LENGTH_SHORT).show();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        &amp;#125;).create();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                alert.show();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;keyword&quot;&gt;break&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;comment&quot;&gt;//单选列表对话框&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;case&lt;/span&gt; R.id.btn_dialog_three:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;keyword&quot;&gt;final&lt;/span&gt; String[] fruits = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; String[]&amp;#123;&lt;span class=&quot;string&quot;&gt;&quot;苹果&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;雪梨&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;香蕉&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;葡萄&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;西瓜&quot;&lt;/span&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                alert = &lt;span class=&quot;keyword&quot;&gt;null&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                builder = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; AlertDialog.Builder(mContext);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                alert = builder.setIcon(R.mipmap.ic_icon_fish)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        .setTitle(&lt;span class=&quot;string&quot;&gt;&quot;选择你喜欢的水果，只能选一个哦~&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        .setSingleChoiceItems(fruits, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; DialogInterface.OnClickListener() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                            &lt;span class=&quot;meta&quot;&gt;@Override&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                            &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(DialogInterface dialog, &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; which)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                                Toast.makeText(getApplicationContext(), &lt;span class=&quot;string&quot;&gt;&quot;你选择了&quot;&lt;/span&gt; + fruits[which], Toast.LENGTH_SHORT).show();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        &amp;#125;).create();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                alert.show();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;keyword&quot;&gt;break&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;comment&quot;&gt;//多选列表对话框&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;case&lt;/span&gt; R.id.btn_dialog_four:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;keyword&quot;&gt;final&lt;/span&gt; String[] menu = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; String[]&amp;#123;&lt;span class=&quot;string&quot;&gt;&quot;水煮豆腐&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;萝卜牛腩&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;酱油鸡&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;胡椒猪肚鸡&quot;&lt;/span&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;comment&quot;&gt;//定义一个用来记录个列表项状态的boolean数组&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                checkItems = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;boolean&lt;/span&gt;[]&amp;#123;&lt;span class=&quot;keyword&quot;&gt;false&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;false&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;false&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;false&lt;/span&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                alert = &lt;span class=&quot;keyword&quot;&gt;null&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                builder = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; AlertDialog.Builder(mContext);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                alert = builder.setIcon(R.mipmap.ic_icon_fish)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        .setMultiChoiceItems(menu, checkItems, &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; DialogInterface.OnMultiChoiceClickListener() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                            &lt;span class=&quot;meta&quot;&gt;@Override&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                            &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(DialogInterface dialog, &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; which, &lt;span class=&quot;keyword&quot;&gt;boolean&lt;/span&gt; isChecked)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                                checkItems[which] = isChecked;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        &amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        .setPositiveButton(&lt;span class=&quot;string&quot;&gt;&quot;确定&quot;&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; DialogInterface.OnClickListener() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                            &lt;span class=&quot;meta&quot;&gt;@Override&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                            &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;onClick&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(DialogInterface dialog, &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; which)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                                String result = &lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                                &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; i &amp;lt; checkItems.length; i++) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                                    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (checkItems[i])&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                                        result += menu[i] + &lt;span class=&quot;string&quot;&gt;&quot; &quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                                &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                                Toast.makeText(getApplicationContext(), &lt;span class=&quot;string&quot;&gt;&quot;客官你点了:&quot;&lt;/span&gt; + result, Toast.LENGTH_SHORT).show();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        &amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                        .create();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                alert.show();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;keyword&quot;&gt;break&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;此外我们还可以使用我们自定义的View来作为对话框的显示内容：&lt;br&gt;&lt;img src=&quot;http://7xvek8.com1.z0.glb.clouddn.com/alertdialog.jpg&quot; alt=&quot;自定义dialog&quot;&gt;&lt;br&gt;简单实现加载自定义View的代码:&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//对话框&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; AlertDialog.Builder builder;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; AlertDialog alert = &lt;span class=&quot;keyword&quot;&gt;null&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt; View view_custom;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//MainActivity里面：&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//对话框初始化&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;final&lt;/span&gt; LayoutInflater inflater = MainActivity.&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.getLayoutInflater();   &lt;span class=&quot;comment&quot;&gt;//过滤器&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;view_custom = inflater.inflate(R.layout.help, &lt;span class=&quot;keyword&quot;&gt;null&lt;/span&gt;,&lt;span class=&quot;keyword&quot;&gt;false&lt;/span&gt;);				&lt;span class=&quot;comment&quot;&gt;//得到自定义布局&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;builder = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; AlertDialog.Builder(MainActivity.&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;);					&lt;span class=&quot;comment&quot;&gt;//构造器&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;builder.setCancelable(&lt;span class=&quot;keyword&quot;&gt;true&lt;/span&gt;);											&lt;span class=&quot;comment&quot;&gt;//允许点击其他地方，dialog消失&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;alert = builder.create();												&lt;span class=&quot;comment&quot;&gt;//得到Alerdialog对象&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;alert.setView(view_custom,&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;);										&lt;span class=&quot;comment&quot;&gt;//设置界面，无边框&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;进行完以上的初始化以后，我们就可以使用alert.show()函数与dismiss()函数控制它的显示了。&lt;/p&gt;
+&lt;p&gt;如果想要控制它的大小，可以在show()函数的语句后面添加下面语句：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;WindowManager.LayoutParams params = alert.getWindow().getAttributes();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;params.width = &lt;span class=&quot;number&quot;&gt;1920&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;params.height = &lt;span class=&quot;number&quot;&gt;1020&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;alert.getWindow().setAttributes(params);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Alertdialog的简单使用&quot;&gt;&lt;a href=&quot;#Alertdialog的简单使用&quot; class=&quot;headerlink&quot; title=&quot;Alertdialog的简单使用&quot;&gt;&lt;/a&gt;Alertdialog的简单使用&lt;/h1&gt;&lt;p&gt;有时候我们需要在界面上显示出
+    
+    </summary>
+    
+      <category term="android" scheme="http://whykifan.tk/categories/android/"/>
+    
+    
+      <category term="android" scheme="http://whykifan.tk/tags/android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python+Pycharm使用opencv</title>
+    <link href="http://whykifan.tk/Pychon+Pycharm%E4%BD%BF%E7%94%A8opencv.html"/>
+    <id>http://whykifan.tk/Pychon+Pycharm使用opencv.html</id>
+    <published>2017-03-26T12:32:43.000Z</published>
+    <updated>2017-03-26T12:43:22.958Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;strong&gt;Python+Pycharm使用opencv&lt;/strong&gt;&lt;br&gt;  &lt;em&gt;在这个配置过程中，遇到了不少的问题，于是就写了这篇博文，希望可以帮到遇到相同问题的人。&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;主要步骤：&lt;/strong&gt;&lt;br&gt;1.Anaconda2的下载：&lt;a href=&quot;https://www.continuum.io/downloads&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;传送门&lt;/a&gt;&lt;br&gt;2.opencv320库下载：&lt;a href=&quot;http://opencv.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;传送门&lt;/a&gt;&lt;br&gt;3.pycharm中配置解析器&lt;br&gt;4.调用代码&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt; &lt;strong&gt;一&lt;/strong&gt;：首先是Anaconda2的下载，在这之前不需要安装任何的python版本，关于python 和Anaconda的关系如下:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Anaconda里面集成了很多关于python科学计算的第三方库，主要是安装方便，如果不使用anaconda，那么安装起来会很麻烦，各个库之间的依赖性就很难连接的很好，简单点说就是Anaconda已经包含了python,而且安装非常快捷方便。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;　　在安装Anaconda的时候特别需要注意的是，有人到官网以后看到了最新的Anacoda3立马就下了最新的，需要说明的是，Anaconda2和3分别对应的是python版本的2.7和3.6,python的2和3的差别是比较明显的，然而opencv目前支持的python版本是2.7的，如何使用Anaconda3的话，在pycharm中调用的时候会出现无法导入opencv库的情况！！&lt;br&gt;  　　下载好Annconda2的安装包以后，除了选择一下安装路径意外，接下来一路next即可。完成后，无需在进行环境变量的配置。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt; &lt;strong&gt;二&lt;/strong&gt;.opencv库下载好以后，进入安装目录的build\python\2.7的目录，这里面有两个目录,一个是64位的一个是32位的，里面都包含着一个cv2.pyd文件，复制与你安装Anaconda位数相同的里面的cv2.pyd文件，将其粘贴到Anaconda安装目录的Lib\site-packages目录下。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;三&lt;/strong&gt;pycharm的安装在这里就不说了，网上教程很多，安装完成后，新建一个项目，在项目里面新建一个python文件，点击File-&amp;gt;setting&lt;/p&gt;
+&lt;p&gt;&lt;div align=&quot;center&quot;&gt;&lt;br&gt;&lt;img src=&quot;http://img.blog.csdn.net/20170326192847863?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2h5a2lmYW4=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast&quot; alt=&quot;设置&quot;&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt; 找到解析器设置：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;div align=&quot;center&quot;&gt;&lt;br&gt;&lt;img src=&quot;http://img.blog.csdn.net/20170326200330176?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2h5a2lmYW4=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast&quot; alt=&quot;这里写图片描述&quot;&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;正常的话在软件安装完成以后已经为你选好了设置Anaconda的解析器，如果没有的话自己点右边的设置添加即可，添加路径即为Anaconda的安装目录。&lt;/p&gt;
+&lt;p&gt;  &lt;strong&gt;4&lt;/strong&gt;进行过上述过程以后，正常的话应该就可以利用python编写opencv的代码了，一个小例子：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;import numpy as np&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;import cv2 as cv&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;grayImg = cv.imread(&amp;apos;12.jpg&amp;apos;,cv.IMREAD_GRAYSCALE)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cv.imwrite(&amp;apos;mygray.jpg&amp;apos;,grayImg)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这里使用imread从项目目录读取了一个名字为12的jpg文件，IMREAD_GRAYSCALE为文件读取的模式，使其作为灰度图像，文件的路径最好采用绝对路径的形式，比如：C:\user\hello\my.png的形式，我在这里采用的是相对路径的形式。imwrite这一条语句将得到的灰度图像保存下来，前一个参数是要保存是图像的名字和类型。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;　运行程序，项目目录下面将会生成一个mygray.jpg图像：&lt;br&gt;　&lt;img src=&quot;http://img.blog.csdn.net/20170326200113354?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2h5a2lmYW4=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast&quot; alt=&quot;这里写图片描述&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;Python+Pycharm使用opencv&lt;/strong&gt;&lt;br&gt;  &lt;em&gt;在这个配置过程中，遇到了不少的问题，于是就写了这篇博文，希望可以帮到遇到相同问题的人。&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;主要步骤：&lt;/stro
+    
+    </summary>
+    
+      <category term="opencv" scheme="http://whykifan.tk/categories/opencv/"/>
+    
+    
+      <category term="VerticalBar" scheme="http://whykifan.tk/tags/VerticalBar/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>获取电脑wifi密码</title>
+    <link href="http://whykifan.tk/%E8%8E%B7%E5%8F%96%E7%94%B5%E8%84%91wifi%E5%AF%86%E7%A0%81.html"/>
+    <id>http://whykifan.tk/获取电脑wifi密码.html</id>
+    <published>2016-08-19T08:31:29.000Z</published>
+    <updated>2016-08-19T09:04:47.633Z</updated>
+    
+    <content type="html">&lt;p&gt;　　    有很多人连接了wifi以后，时间一长会忘掉自己的wifi密码，这里有一个通过cmd命令来让电脑给我们列出所有电脑曾经连接过的wifi密码的方法:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;1.首先我们通过快捷键ctrl+r打开运行窗口，输入cmd打开命令行窗口.&lt;br&gt;2.复制以下代码并直接直接粘贴回车运行.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;代码：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;for /f &amp;quot;skip=9 tokens=1,2 delims=:&amp;quot; %i in (&amp;apos;netsh wlan show profiles&amp;apos;) do  @echo %j | findstr -i -v echo | netsh wlan show profiles %j key=clear&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;3.然后我们可以看到命令窗口上面打印出了很多wifi名称，加密方式，密码等信息：&lt;img src=&quot;http://7xvek8.com1.z0.glb.clouddn.com/wifi%E5%AF%86%E7%A0%81%EF%BC%88%E7%94%B5%E8%84%91%E6%8A%80%E6%9C%AF%EF%BC%89.png&quot; alt=&quot;网络吃屎了&quot;&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;　　    有很多人连接了wifi以后，时间一长会忘掉自己的wifi密码，这里有一个通过cmd命令来让电脑给我们列出所有电脑曾经连接过的wifi密码的方法:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;1.首先我们通过快捷键ctrl+r打开运行窗口，输入cmd打开命令行窗口.&lt;
+    
+    </summary>
+    
+      <category term="电脑技术" scheme="http://whykifan.tk/categories/%E7%94%B5%E8%84%91%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="wifi" scheme="http://whykifan.tk/tags/wifi/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>android得到版本信息</title>
+    <link href="http://whykifan.tk/android%E5%BE%97%E5%88%B0%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF.html"/>
+    <id>http://whykifan.tk/android得到版本信息.html</id>
+    <published>2016-07-28T08:28:58.000Z</published>
+    <updated>2016-07-28T08:38:00.188Z</updated>
+    
+    <content type="html">&lt;p&gt;android对于版本的控制是非常重要的，今天再次分享一个在avtivity里面的得到app自身版本信息的方法，代码如下：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;private String  getVersionName()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;private PackageManager manager = getPackageManager();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        try &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;         PackageInfo info =   manager.getPackageInfo(getPackageName(),0);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            return info.versionName;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125; catch (PackageManager.NameNotFoundException e) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            Log.d(&amp;quot;版本名称&amp;quot;, &amp;quot;getVersionName:error &amp;quot;);;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        return &amp;quot;&amp;quot;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;通过上面的方法我们就可以轻松的得到我们的app的VersionName。对于app的版本控制，一般是通过改写我们mainfist的xml文件里面的android:versioncode与andorid:versionname来实现的，但是versioncode只能去整数值，代表了我们的更新的次数，而versionname是String类型，一般我们可以随意指定。&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;android对于版本的控制是非常重要的，今天再次分享一个在avtivity里面的得到app自身版本信息的方法，代码如下：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span
+    
+    </summary>
+    
+      <category term="android" scheme="http://whykifan.tk/categories/android/"/>
+    
+    
+      <category term="android得到版本信息" scheme="http://whykifan.tk/tags/android%E5%BE%97%E5%88%B0%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>IC2总线简单学习</title>
+    <link href="http://whykifan.tk/IC2%E6%80%BB%E7%BA%BF%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A0.html"/>
+    <id>http://whykifan.tk/IC2总线简单学习.html</id>
+    <published>2016-07-24T09:25:02.000Z</published>
+    <updated>2016-07-24T10:45:42.731Z</updated>
+    
+    <content type="html">&lt;p&gt;　　　IC2总线一直是单片机学习的过程中比较难的一个环节，其实只要你搞清了它的工作时序，也就没有那么难，无非就是三个部分而已：&lt;br&gt;　　　　　　　　　　&lt;strong&gt;起始信号–读/写数据–停止信号&lt;/strong&gt;&lt;br&gt;本文的讲解顺序：起始信号，停止信号，读/写数据（由易到难），阅读完此文大约需要十分钟。&lt;br&gt;&lt;strong&gt;1.IC2了解：&lt;/strong&gt;&lt;br&gt;在硬件上，I2C总线是由时钟总线SCL和数据总线SDA两条线构成，连接到总线上的所有器件的 SCL都连到一起，所有SDA都连到一起。I2C总线是开漏引脚并联的结构，因此我们外部要添加上拉电阻。对于开漏电路外部加上拉电阻，就组成了线“与”的关系。总线上线“与”的关系就是说，所有接入的器件保持高电平，这条线才是高电平，而任何一个器件输出一个低电平，那这条线就会保持低电平，因此可以做到任何一个器件都可以拉低电平，也就是任何一个器件都可以作为主机。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xvek8.com1.z0.glb.clouddn.com/IC2%28%E5%8D%95%E5%93%81%E6%9C%BA%29.png&quot; alt=&quot;network error&quot;&gt;&lt;br&gt;&lt;strong&gt;2.IC2通信时序&amp;amp;程序&lt;/strong&gt;&lt;br&gt;&lt;em&gt;IC2时序图：&lt;/em&gt;&lt;br&gt;&lt;img src=&quot;http://7xvek8.com1.z0.glb.clouddn.com/IC2%E6%97%B6%E5%BA%8F%E5%9B%BE%28%E5%8D%95%E5%93%81%E6%9C%BA%29.png&quot; alt=&quot;network error&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;2.1起始信号&lt;br&gt;由图可知，I2C 通信的起始信号的定义是SCL为高电平期间，SDA由高电平向低电平变化产生一个下降沿，表示起始信号。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt; &lt;em&gt;代码写法：&lt;/em&gt;&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;void I2CStart()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2C_SDA = 1; //首先确保 SDA、 SCL 都是高电平&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2C_SCL = 1;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2CDelay();  //延时函数，一般延时为4-5个机器周期（_nop_）&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2C_SDA = 0; //先拉低 SDA&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2CDelay();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2C_SCL = 0; //再拉低 SCL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;2.2信号结束&lt;br&gt; I2C 通信停止信号的定义是SCL为高电平期间，SDA由低电平向高电平变化产生一个上升沿，表示结束信号。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt; 代码写法：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt; void I2CStop()  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2C_SCL = 0; //首先确保 SDA、 SCL 都是低电平&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2C_SDA = 0;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2CDelay();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2C_SCL = 1; //先拉高 SCL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2CDelay();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2C_SDA = 1; //再拉高 SDA&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2CDelay();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;2.3数据传输&lt;br&gt; 因为这一部分，内容多一些，所以放在最后来写。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I2C 没有固定波特率，但是有时序的要求，要求当 SCL 在低电平的时候， SDA 允许变化，也就是说，发送方必须先保持SCL是低电平，才可以改变数据线 SDA，输出要发送的当前数据的一位（写数据）；而当SCL在高电平的时候， SDA绝对不可以变化，因为这个时候，接收方要来读取当前SDA的电平信号是 0 还是 1，因此要保证 SDA 的稳定（读数据）。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;2.3.1 &lt;strong&gt;I2C 寻址模式&lt;/strong&gt;&lt;br&gt;I2C 通信的起始信号(Start)后，首先要发送一个从机的地址，这个地址一共有 7位，紧跟着的第8位是数据方向位(R/W)，“0”表示接下来要发送数据（写），“ 1”表示接下来是请求数据（读）。我们发送完了这 7 位地址和 1 位方向后，如果发送的这个地址确实存在，那么这个地址的器件应该回应一个 ACK（拉低 SDA 即输出“0”），如果不存在，就没回应ACK（SDA将保持高电平即“ 1”）。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;应答位ACK：我们写数据的时候总线可以返回一个ACK则证明我们的数据写入成功。&lt;br&gt;非应答位NAK：我们读取数据的时候发送一个非应答位来告诉IC2总线我们不想要数据了（此时令SCL = 0,因为读取数据的时候SCL要稳定保持高电平）。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;程序代码：（写数据函数:要求当 SCL 在低电平的时候， SDA 允许变化，也就是说，发送方必须先保持SCL是低电平，才可以改变数据线 SDA，输出要发送的当前数据的一位（写数据）。）&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;bit I2CWrite(unsigned char dat)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;bit ack; //用于暂存应答位的值&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;unsigned char mask; //用于探测字节内某一位值的掩码变量&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;//由时序图可知，数据是一位一位写的，循环写8次，也就写入了一个字节&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;for (mask=0x80; mask!=0; mask&amp;gt;&amp;gt;=1) //从高位到低位依次进行&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;if ((mask&amp;amp;dat) == 0) //该位的值输出到 SDA 上&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2C_SDA = 0;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;else&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2C_SDA = 1;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2CDelay();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;//由时序图知，SDA写入一位数据后，scl要先拉高再拉低，再写第二位数据&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2C_SCL = 1; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2CDelay();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2C_SCL = 0; //再拉低 SCL，完成一个位周期&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2C_SDA = 1; //8 位数据发送完后，主机释放 SDA，以检测从机应答&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2CDelay();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2C_SCL = 1; //拉高 SCL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ack = I2C_SDA; //读取此时的 SDA 值，即为从机的应答值&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2CDelay();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2C_SCL = 0; //再拉低 SCL 完成应答位，并保持住总线&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;return ~ack; //返回从机应答值,去反后符合正常的逻辑，有即用1代表&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;有了上面的函数，我们其实可以用来判断一个地址是否存在，即寻址函数：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;/* I2C 寻址函数，即检查地址为 addr 的器件是否存在，返回值-从器件应答值 */&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;bit I2CAddressing(unsigned char addr)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;bit ack;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2CStart(); //产生起始位，即启动一次总线操作&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ack = I2CWrite(addr&amp;lt;&amp;lt;1); //器件地址需左移一位，因寻址命令的最低位&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;//为读写位，用于表示之后的操作是读或写&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2CStop(); //不需进行后续读写，而直接停止本次总线操作&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;return ack;  //ack为1则证明存在地址，为0则不存在&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;（读数据函数:而当SCL在高电平的时候，SDA绝对不可以变化，因为这个时候，接收方要来读取当前SDA的电平信号是 0 还是 1，因此要保证 SDA 的稳定（读数据）。)&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;/* I2C 总线读操作，并发送非应答信号，返回值-读到的字节 */&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;unsigned char I2CReadNAK()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;unsigned char mask;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;unsigned char dat;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2C_SDA = 1; //首先确保主机释放 SDA&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;//从高位到低位依次进行，同样参照时序图&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;for (mask=0x80; mask!=0; mask&amp;gt;&amp;gt;=1) &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2CDelay();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2C_SCL = 1; //拉高 SCL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;if(I2C_SDA == 0) //读取 SDA 的值&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;dat &amp;amp;= ~mask; //为 0 时， dat 中对应位清零&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;else&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;dat |= mask; //为 1 时， dat 中对应位置 1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2CDelay();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2C_SCL = 0; //再拉低 SCL，以使从机发送出下一位&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2C_SDA = 1; //8 位数据发送完后，拉高 SDA，发送非应答信号&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2CDelay();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2C_SCL = 1; //拉高 SCL&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2CDelay();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2C_SCL = 0; //再拉低 SCL 完成非应答位，并保持住总线&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;return dat;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3.总结：&lt;/strong&gt;&lt;br&gt;通常情况下，只要我们掌握以上几个IC2函数以后，基本上可以应对很大一部分的元器件，这些器件要求的不同的地方可能也就是写命令的内容与顺序了，比如我们在EEROM中读取入一个字节：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;/* 读取 EEPROM 中的一个字节， addr-字节地址 */&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;unsigned char E2ReadByte(unsigned char addr)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;unsigned char dat;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2CStart();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2CWrite(0x50&amp;lt;&amp;lt;1); //寻址器件，后续为写操作&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2CWrite(addr); //写入存储地址&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2CStart(); //发送重复启动信号&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2CWrite((0x50&amp;lt;&amp;lt;1)|0x01); //寻址器件，后续为读操作，配置为读模式&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;dat = I2CReadNAK(); //读取一个字节数据&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2CStop();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;return dat;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/* 向 EEPROM 中写入一个字节， addr-字节地址 */&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;void E2WriteByte(unsigned char addr, unsigned char dat)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;//先寻址，再写数据&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2CStart();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2CWrite(0x50&amp;lt;&amp;lt;1); //寻址器件，后续为写操作，配置为写模式&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2CWrite(addr); //写入存储地址&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2CWrite(dat); //写入一个字节数据&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;I2CStop();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;由上可知，这些使用到IC2的元器件，其实也就是在来回的调用IC2的几个基本函数而已，只要使用此类元器件的时候，只要我们阅读其使用手册，在去调用这几个IC2函数进行相应的配置即可。&lt;/strong&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;　　　IC2总线一直是单片机学习的过程中比较难的一个环节，其实只要你搞清了它的工作时序，也就没有那么难，无非就是三个部分而已：&lt;br&gt;　　　　　　　　　　&lt;strong&gt;起始信号–读/写数据–停止信号&lt;/strong&gt;&lt;br&gt;本文的讲解顺序：起始信号，停止信号，读/写数据（
+    
+    </summary>
+    
+      <category term="单品机" scheme="http://whykifan.tk/categories/%E5%8D%95%E5%93%81%E6%9C%BA/"/>
+    
+    
+      <category term="IC2总线" scheme="http://whykifan.tk/tags/IC2%E6%80%BB%E7%BA%BF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>开发部纪念</title>
+    <link href="http://whykifan.tk/%E5%BC%80%E5%8F%91%E9%83%A8%E7%BA%AA%E5%BF%B5.html"/>
+    <id>http://whykifan.tk/开发部纪念.html</id>
+    <published>2016-07-22T10:29:06.000Z</published>
+    <updated>2016-07-22T10:40:59.640Z</updated>
+    
+    <content type="html">&lt;p&gt;　　&lt;strong&gt;不知不觉已经在电开待了两年了，在这里学到了很多，也认识了很多朋友，见到了不少大牛学长。相信电开以后会越办越好，走出越来越多的人才。&lt;/strong&gt;&lt;br&gt;&lt;img src=&quot;http://7xvek8.com1.z0.glb.clouddn.com/diankai.png&quot; alt=&quot;网络慢死了&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;当初我们做的招新视频，现在看起来依然激情澎湃：&lt;/strong&gt;&lt;/p&gt;
+&lt;embed src=&quot;http://player.youku.com/player.php/sid/XMTMzNDEyODczMg==/v.swf&quot; allowfullscreen=&quot;true&quot; quality=&quot;high&quot; width=&quot;650&quot; height=&quot;500&quot; align=&quot;middle&quot; allowscriptaccess=&quot;always&quot; type=&quot;application/x-shockwave-flash&quot;&gt;&lt;/blockquote&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;　　&lt;strong&gt;不知不觉已经在电开待了两年了，在这里学到了很多，也认识了很多朋友，见到了不少大牛学长。相信电开以后会越办越好，走出越来越多的人才。&lt;/strong&gt;&lt;br&gt;&lt;img src=&quot;http://7xvek8.com1.z0.glb.clouddn.com/d
+    
+    </summary>
+    
+      <category term="电开的日子" scheme="http://whykifan.tk/categories/%E7%94%B5%E5%BC%80%E7%9A%84%E6%97%A5%E5%AD%90/"/>
+    
+    
+      <category term="开发部纪念" scheme="http://whykifan.tk/tags/%E5%BC%80%E5%8F%91%E9%83%A8%E7%BA%AA%E5%BF%B5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>串口通信</title>
+    <link href="http://whykifan.tk/%E4%B8%B2%E5%8F%A3%E9%80%9A%E4%BF%A1.html"/>
+    <id>http://whykifan.tk/串口通信.html</id>
+    <published>2016-07-22T08:01:01.000Z</published>
+    <updated>2016-07-22T10:21:35.939Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;strong&gt;一.通信的分类：&lt;/strong&gt;&lt;br&gt;  　　&lt;br&gt;  　　通信按照基本类型可以分为并行通信和串行通信。并行通信的各个数据位同时传送，但占用资源多，成本高；而串行通信的数据位是由低位到高位一位一位发送的。&lt;br&gt;  　　常用的通信从传输方向上可以分为单工通信、半双工通信、全双工通信三类。&lt;br&gt;  　１．单工通信就是指只允许一方向另外一方传送信息，而另一方不能回传信息。比如电视遥控器、收音机广播等，都是单工通信技术。&lt;br&gt;  　２．半双工通信是指数据可以在双方之间相互传播，但是同一时刻只能其中一方发给另外一方，比如我们的对讲机就是典型的半双工。&lt;br&gt;  　３．全双工通信就发送数据的同时也能够接收数据，两者同步进行，就如同我们的电话一样，我们说话的同时也可以听到对方的声音。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;二.串口通信的基本知识：&lt;/strong&gt;&lt;br&gt;　　通常一个单片机有两个引脚是来做UART通信的，P3.0(RXD)、P3.1(TXD),两个单片机通信的示意图：&lt;br&gt;　　&lt;img src=&quot;http://7xvek8.com1.z0.glb.clouddn.com/%E4%B8%A4%E4%B8%AA%E4%B8%B2%E5%8F%A3%E6%8E%A5%E7%BA%BF%E5%9B%BE%28%E5%8D%95%E7%89%87%E6%9C%BA%29.png&quot; alt=&quot;网络慢死了&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;TXD 是串行发送引脚，RXD是串行接收引脚。两个单片机之间要通信，首先电源基准得一样，所以我们要把两个单片机的 GND 相互连接起来。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;串行通信的数据发送过程：&lt;br&gt;&lt;img src=&quot;http://7xvek8.com1.z0.glb.clouddn.com/%E4%B8%B2%E5%8F%A3%E9%80%9A%E4%BF%A1%E7%A4%BA%E6%84%8F%E5%9B%BE%28%E5%8D%95%E7%89%87%E6%9C%BA%29.png&quot; alt=&quot;网络慢死了&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在 UART 通信的时候，一个字节是8位，规定当没有通信信号发生时，通信线路保持高电平，当要发送数据之前，先发一位 0 表示起始位，然后发送 8 位数据位，数据位是先低后高的顺序，数据位发完后再发一位 1 表示停止&lt;br&gt;位。这样本来要发送一个字节的 8 位数据，而实际上我们一共发送了 10 位，多出来的两位其中一位起始位，一位停止位。而接收方呢，原本一直保持的高电平，一旦检测到了一位低电平，那就知道了要开始准备接收数据了，接收到 8 位数据位后，然后检测到停止位，再准备下一个数据的接收。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;三、串口通信速率的约定：&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;　　串口通信的时候涉及到引脚的高低电平的持续时间，比如发送一个０和１，发送引脚先持续一段低电平，在持续一段高电平，那么这个数据就发送过去了，这个时间是如何约定的，这就需要了解通信当中的另外一个概念——波特率(baud)。&lt;br&gt;　　发送一位二进制的时间=1/baud，通信之前，单片机 1 和单片机 2 首先都要明确的约定好它们之间的通信波特率，必须保持一致，收发双方才能正常实现通信。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;四.USB转串口通信&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;   现在大多数的笔记本电脑上已经没有串口了，所以一般我们的电路板上会有一个USB转串口的芯片，以实现实现USB通信协议和标准UART串行通信协议的转换，一般常用的芯片有ch340和pl2303这两个转串口的芯片&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;五、UART模块介绍:&lt;/strong&gt;&lt;br&gt;　　51单片机的 UART串口的结构由串行口控制寄存器SCON、发送和接收电路三部分构成。&lt;br&gt;&lt;strong&gt;SCON－串行控制寄存器的位分配（地址0x98,可位寻址）&lt;/strong&gt;&lt;br&gt;  | 位 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |&lt;br&gt;  |——–|———|——-|&lt;br&gt;  | 符号 | SM0 | SM1 |SM2 | REN | TB8 | RB8 | TI | RI |&lt;br&gt;  | 复位值 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0|&lt;br&gt;&lt;strong&gt;SCON - 串行寄存器位描述&lt;/strong&gt;&lt;br&gt;  |位|符号|描述|&lt;br&gt;  |——–|—–|——-|&lt;br&gt;  |7/6|SM0/SM1 |这两位共同决定了串口通信的模式 0～模式 3 共 4  种模式。 我们最常用的就是模式 1，也就是 SM0=0， SM1=1，下边我们重点就讲模式 1，其它模式从略。|&lt;br&gt;  |5|SM2|多机通信控制位（极少用），模式 1 直接清零。|&lt;br&gt;  |4|REN|使能串行接收。由软件置位使能接收，软件清零则禁止接收。|&lt;br&gt;  |3|TB8|模式 2 和 3 中要发送的第 9 位数据（很少用）。|&lt;br&gt;  |2|RB8|模式 2 和 3 中接收到的第 9 位数据（很少用），模式 1 用来接收停止位。|&lt;br&gt;  |1 |TI|发送中断标志位，当发送电路发送到停止位的中间位置时， TI 由硬件置 1，必须通过软件清零。|&lt;br&gt;  |0 |RI|接收中断标志位，当接收电路接收到停止位的中间位置时， RI 由硬件置 1，必须通过软件清零。|&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;可以位寻址的含义：支持对寄存器的单个位进行操作，不可位寻址的只能一次性对寄存器进行整体操作。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;串口通信的波特率，只能由定时器T1或T2产生，不能由T0产生。使用定时器2，则需要配置额外的寄存器，默认使用的是定时器1。使用定时器1产生波特率需要使用定时器1的模式2，即自动重载模式：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;TH1 = TL1 = 256 - 晶振值/12/2/16/波特率&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;波特率有关的还有一个寄存器，是一个电源管理寄存器PCON，他的最高位可以把波特率提高一倍，也就是如果写 PCON |= 0x80 以后，计算公式就成了：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;TH1 = TL1 = 256 - 晶振值/12 /16 /波特率&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;关于SBUF寄存器:&lt;/em&gt;&lt;br&gt;　　串口通信的发送和接收电路在物理上有2个名字相同的SBUF寄存器，它们的地址也都是0x99，但是一个用来做发送缓冲，一个用来做接收缓冲。意思就是说，有2个房间，两个房间的门牌号是一样的，其中一个只出人不进人，另外一个只进人不出人，这样的话，我们就可以实现UART的全双工通信，相互之间不会产生干扰。我们每次只操作SBUF，单片机会自动根据对它执行的是“读”还是“写”操作来选择是接收 SBUF 还是发送 SBUF。&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;//例：发送  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;SBUF = 1;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;//接受&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;P0 = SBUF;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;六、串口通信的基本配置步骤：&lt;/strong&gt;&lt;br&gt;1、配置串口为模式 1。&lt;br&gt;2、配置定时器 T1 为模式 2，即自动重装模式。&lt;br&gt;3、根据波特率计算 TH1 和 TL1 的初值，如果有需要可以使用 PCON 进行波特率加倍。&lt;br&gt;4、打开定时器控制寄存器 TR1，让定时器跑起来。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;T1 做波特率发生器的时候，千万不要再使能 T1 的中断了。否则会使产生的波特率发生错误。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;void UART_Init(unsigned int baud)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;SCON = 0x50; //配置串口为模式 1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;TMOD &amp;amp;= 0x0F; //清零 T1 的控制位&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;TMOD |= 0x20; //配置 T1 为模式 2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;TH1 = 256 - (11059200/12/32)/baud; //计算 T1 重载值&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;TL1 = TH1; //初值等于重载值&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ET1 = 0; //禁止 T1 中断&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;//ES = 1 ; //使能串口中断&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;TR1 = 1; //启动 T1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;当我们使用串口中断的时候：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;//首先main函数中打开总中断&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;main()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;EA = 1;  //使能总中断&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;UART_Init(9600);  //将里面的串口使能中断打开&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;...&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;//串口中断服务函数&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;void InterruptUART() interrupt 4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;if (RI) //接收到字节&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;RI = 0; //手动清零接收中断标志位&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;SBUF = SBUF + 1; //接收的数据+1 后发回，左边是发送 SBUF，右边是接收 SBUF&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;if (TI) //字节发送完毕&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;TI = 0; //手动清零发送中断标志位&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;串口接收和发送数据的时候，都是一个字节一个字节的进行的，假如我们想要发送一个字符串的话，我们可以先写好一个字节的发送函数，然后再写一个发送字符串的函数，通过循环的方式一个字节一个字节的发送过去，这样我们就可以放字符串了。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;七、关于ASCII码：&lt;/strong&gt;&lt;br&gt;　　　我们常用的字符就包含了0~9的数字、A~Z/a~z的字母、还有各种标点符号等。那么在单片机系统里面我们怎么来表示它们呢？ASCII码（AmericanStandardCodeforInformationInterchange，即美国信息互换标准代码）可以完成这个使命：我们知道，在单片机中一个字节的数据可以有 0～255 共 256个值，我们取其中的0～127共128个值赋予了它另外一层涵义，即让它们分别来代表一个常用字符，当我们用字符格式发送一个小a，其实发送的是十六进制的0x61,这样就体现了ASCII码表的用处，其具体的对应关系如表:&lt;br&gt;　　　　　　　　　　 &lt;strong&gt;ASCII码字符表&lt;/strong&gt;&lt;br&gt;   |ASC|控制|ASCII|字符|ASCII|字符| ASCII|字符|&lt;br&gt;   |———|——–|——|&lt;br&gt;   |000| NUL| 032|(space)| 064| @ |096| ‟|&lt;br&gt;   |001 |SOH |033 |! |065| A |097 |a|&lt;br&gt;   |002| STX| 034| “| 066| B| 098| b|&lt;br&gt;   |003 |ETX| 035| #| 067 |C |099| c|&lt;br&gt;   |004 |EOT |036| $ |068| D| 100| d|&lt;br&gt;   |005| END |037| % |069| E |101 |e|&lt;br&gt;   |006 |ACK |038| &amp;amp; |070| F |102| f|&lt;br&gt;   |007| BEL| 039| ‘ |071| G |103| g|&lt;br&gt;   |008 |BS| 040 |( |072 |H |104| h|&lt;br&gt;   |009 |HT| 041| )| 073 |I |105| i|&lt;br&gt;   |010 |LF| 042 |* |074 |J |106 |j|&lt;br&gt;   |011|VT |043| + |075| K |107| k|&lt;br&gt;   |012 |FF |044| ，| 076 |L| 108 |l|&lt;br&gt;   |013| CR |045| - |077 |M |109| m|&lt;br&gt;   |014 |SO |046 |．| 078 |N |110| n|&lt;br&gt;   |015| SI| 047| / |079| O |111| o|&lt;br&gt;   |016| DLE |048| 0| 080 |P| 112| p|&lt;br&gt;   |017 |DC1 |049| 1 |081| Q| 113| q|&lt;br&gt;   |018 |DC2| 050 |2 |082| R |114| r|&lt;br&gt;   | 019| DC3| 051| 3 |083 |S| 115| s|&lt;br&gt;   |020 |DC4 |052 |4 |084 |T| 116| t|&lt;br&gt;   | 021| NAK |053| 5 |085| U| 117| u|&lt;br&gt;   |022| SYN| 054 |6 |086| V |118 |v|&lt;br&gt;   |023 |ETB |055 |7 |087 |W |119 |w|&lt;br&gt;   | 024| CAN| 056| 8 |088| X |120| x|&lt;br&gt;   | 025 |EM|057 |9| 089| Y |121| y|&lt;br&gt;   | 026 |SUB| 058| :| 090| Z| 122| z|&lt;br&gt;   | 027 |ESC| 059 |;| 091| [| 123 |{|&lt;br&gt;   | 028 |FS |060 |&amp;lt;| 092| \ |124 |¦|&lt;br&gt;   | 029 |GS| 061| = |093| ] |125 |}|&lt;br&gt;   | 030 |RS| 062 |&amp;gt;| 094 |^| 126| ~|&lt;br&gt;   | 031 |US |063 |? |095| _ |127 |DEL|&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;一.通信的分类：&lt;/strong&gt;&lt;br&gt;  　　&lt;br&gt;  　　通信按照基本类型可以分为并行通信和串行通信。并行通信的各个数据位同时传送，但占用资源多，成本高；而串行通信的数据位是由低位到高位一位一位发送的。&lt;br&gt;  　　常用的通信从传输方向上可以分为单
+    
+    </summary>
+    
+      <category term="单片机" scheme="http://whykifan.tk/categories/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+    
+    
+      <category term="串口通信" scheme="http://whykifan.tk/tags/%E4%B8%B2%E5%8F%A3%E9%80%9A%E4%BF%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数码管动态显示</title>
+    <link href="http://whykifan.tk/%E6%95%B0%E7%A0%81%E7%AE%A1%E5%8A%A8%E6%80%81%E6%98%BE%E7%A4%BA.html"/>
+    <id>http://whykifan.tk/数码管动态显示.html</id>
+    <published>2016-07-18T08:01:52.000Z</published>
+    <updated>2016-07-18T09:29:50.698Z</updated>
+    
+    <content type="html">&lt;p&gt;上一次简单的介绍了数码管的工作原理，但是只是适用于单个数码管的点亮，如果我们同时要在6个数码管上都看到数字，那就需要我们用到数码管的动态显示：&lt;br&gt; &lt;strong&gt;1.原理：&lt;/strong&gt;&lt;br&gt;　　 多个数码管显示数字的时候，我们实际上是轮流点亮数码管（一个时刻内只有一个数码管是亮的），利用人眼的视觉暂留现象（也叫余辉效应），就可以做到看起来是所有数码管都同时亮了，这就是动态显示，也叫做动态扫描。但是扫描的频率是有要求的，刷新率大于100Hz，即刷新时间小于10ms，才能将余晖效应利用起来，做到扫描无闪烁。（&lt;em&gt;一般扫描频率接近100HZ就行，太快已经没有什么太大的意义，只会增加cpu的负担&lt;/em&gt;）&lt;br&gt;&lt;strong&gt;2.流程:&lt;/strong&gt;&lt;br&gt;&lt;img src=&quot;http://7xvek8.com1.z0.glb.clouddn.com/%E6%95%B0%E7%A0%81%E7%AE%A1%E5%8A%A8%E6%80%81%E6%89%AB%E6%8F%8F%E6%B5%81%E7%A8%8B%E5%9B%BE%28%E5%8D%95%E7%89%87%E6%9C%BA%29.png&quot; alt=&quot;图片加载失败&quot;&gt;&lt;br&gt;&lt;strong&gt;3.代码：&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;40&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;41&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;42&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;43&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;44&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;45&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;46&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;47&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;48&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;49&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;50&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;51&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;52&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;53&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;54&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;55&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;56&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;57&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;58&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;59&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;60&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;61&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;62&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;63&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;64&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;65&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;#include &amp;lt;reg52.h&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sbit ADDR0 = P1^0;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sbit ADDR1 = P1^1;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sbit ADDR2 = P1^2;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sbit ADDR3 = P1^3;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sbit ENLED = P1^4;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;unsigned char code LedChar[] = &amp;#123; //数码管显示字符转换表&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;0xC0, 0xF9, 0xA4, 0xB0, 0x99, 0x92, 0x82, 0xF8,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;0x80, 0x90, 0x88, 0x83, 0xC6, 0xA1, 0x86, 0x8E&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;unsigned char LedBuff[6] = &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;//数码管显示缓冲区，初值 0xFF 确保启动时都不亮&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;void main()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;unsigned char i = 0; //动态扫描的索引&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;unsigned int cnt = 0; //记录 T0 中断次数&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;unsigned long sec = 0; //记录经过的秒数&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ENLED = 0; //使能 U3，选择控制数码管&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ADDR3 = 1; //因为需要动态改变 ADDR0-2 的值，所以不需要再初始化了&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;TMOD = 0x01; //设置 T0 为模式 1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;TH0 = 0xFC; //为 T0 赋初值 0xFC67，定时 1ms&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;TL0 = 0x67;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;TR0 = 1; //启动 T0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;while (1)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;if (TF0 == 1) //判断 T0 是否溢出&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;TF0 = 0; //T0 溢出后，清零中断标志&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;TH0 = 0xFC; //并重新赋初值&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;TL0 = 0x67;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cnt++; //计数值自加 1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;if (cnt &amp;gt;= 1000) //判断 T0 溢出是否达到 1000 次&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cnt = 0; //达到 1000 次后计数值清零&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sec++; //秒计数自加 1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;//以下代码将 sec 按十进制位从低到高依次提取并转为数码管显示字符&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;LedBuff[0] = LedChar[sec%10];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;LedBuff[1] = LedChar[sec/10%10];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;LedBuff[2] = LedChar[sec/100%10];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;LedBuff[3] = LedChar[sec/1000%10];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;LedBuff[4] = LedChar[sec/10000%10];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;LedBuff[5] = LedChar[sec/100000%10];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;//以下代码完成数码管动态扫描刷新&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;P0=0xFF; //消除鬼影&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;switch (i)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;case 0: ADDR2=0; ADDR1=0; ADDR0=0; i++; P0=LedBuff[0]; break;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;case 1: ADDR2=0; ADDR1=0; ADDR0=1; i++; P0=LedBuff[1]; break;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;case 2: ADDR2=0; ADDR1=1; ADDR0=0; i++; P0=LedBuff[2]; break;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;case 3: ADDR2=0; ADDR1=1; ADDR0=1; i++; P0=LedBuff[3]; break;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;case 4: ADDR2=1; ADDR1=0; ADDR0=0; i++; P0=LedBuff[4]; break;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;case 5: ADDR2=1; ADDR1=0; ADDR0=1; i=0; P0=LedBuff[5]; break;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;default: break;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;鬼影产生的原因&lt;/strong&gt;：主要是在数码管位选和段选产生的瞬态造成的，例如：case5要切换到case0的时候，case5的位选用的是:&lt;br&gt;　　　&lt;strong&gt;&lt;em&gt;ADDR0=1;ADDR1=0; ADDR2=1;&lt;/em&gt;&lt;/strong&gt;&lt;br&gt;切换成的 case 0 的数码管位选是:&lt;br&gt;　　　&lt;strong&gt;ADDR0=0; ADDR1=0; ADDR2=0;&lt;/strong&gt;&lt;br&gt;又因为 C 语言程序是一句一句顺序往下执行的，每一条语句的执行都会占用一定的时间,当我们把”ADDR0=1”改变成”ADDR0=0”的时候，这个瞬间存在了一个中间状态:&lt;br&gt;　　　&lt;strong&gt;ADDR0=0; ADDR1=0; ADDR2=1;&lt;/strong&gt;&lt;br&gt;这个状态对应的是case4的状态，且这个时候P0还保留着上一次的值，从而就造成了”鬼影”。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;消除鬼影的方法：&lt;/strong&gt;&lt;br&gt; &lt;strong&gt;关闭段&lt;/strong&gt;：在 switch(i)这句程序之前，加一句 P0=0xFF;这样就把数码管所有的段都关闭了，当把“ ADDR”的值全部搞定后，再给 P0 赋对应的值即可。&lt;br&gt;&lt;strong&gt;关闭位&lt;/strong&gt;：在 switch(i)这句程序之前，加上一句 ENLED=1；等到把 ADDR2=0; ADDR1=0;ADDR0=0;i++;P0=LedBuff[0];这几条刷新程序全部写完后，再加上一句 ENLED=0；然后再进行 break 操作即可。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;符号的说明：&lt;/strong&gt;&lt;br&gt;　　 C 语言中，”/“等同于数学里的除法运算，而”%”等同于求余数运算。如果是123456这个数字，我们要正常显示在数码管上，个位显示，就是直接对10取余数，这个”6”就出来了，十位数字就是先除以10，然后再对10取余数，以此类推，就把6个数字全部显示出来了&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;定时器中断实现动态扫描&quot;&gt;&lt;a href=&quot;#定时器中断实现动态扫描&quot; class=&quot;headerlink&quot; title=&quot;定时器中断实现动态扫描&quot;&gt;&lt;/a&gt;定时器中断实现动态扫描&lt;/h2&gt;&lt;p&gt;实际上定时器一般用法都是采取中断方式来做的，上一部分我们只是用判断定时器溢出标记位的方法来实现的延时判断，讲解定时器的时候我们也有讲过定时器是有自己的中断的，当满足一定的条件是即会触发。&lt;/p&gt;
+&lt;p&gt; IE——中断使能寄存器的位分配（ 地址 0xA8、可位寻址）&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;位&lt;/th&gt;
+&lt;th&gt;7&lt;/th&gt;
+&lt;th&gt;6&lt;/th&gt;
+&lt;th&gt;5&lt;/th&gt;
+&lt;th&gt;4&lt;/th&gt;
+&lt;th&gt;3&lt;/th&gt;
+&lt;th&gt;2&lt;/th&gt;
+&lt;th&gt;1&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;符号&lt;/td&gt;
+&lt;td&gt;EA&lt;/td&gt;
+&lt;td&gt;–&lt;/td&gt;
+&lt;td&gt;ET2&lt;/td&gt;
+&lt;td&gt;ES&lt;/td&gt;
+&lt;td&gt;ET1&lt;/td&gt;
+&lt;td&gt;EX1&lt;/td&gt;
+&lt;td&gt;ET0&lt;/td&gt;
+&lt;td&gt;EX0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;复位值&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;–&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;位&lt;/th&gt;
+&lt;th&gt;符号&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;7&lt;/td&gt;
+&lt;td&gt;EA&lt;/td&gt;
+&lt;td&gt;总中断使能位，相当于总开关&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;6&lt;/td&gt;
+&lt;td&gt;–&lt;/td&gt;
+&lt;td&gt;–&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;ET2&lt;/td&gt;
+&lt;td&gt;定时器 2 中断使能&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;ES&lt;/td&gt;
+&lt;td&gt;串口中断使能&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;ET1&lt;/td&gt;
+&lt;td&gt;定时器 1 中断使能&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;EX1&lt;/td&gt;
+&lt;td&gt;外部中断 1 使能&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;ET0&lt;/td&gt;
+&lt;td&gt;定时器 0 中断使能&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;EX0&lt;/td&gt;
+&lt;td&gt;外部中断 0 使能&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;使用中断，首先EA=1这一句，打开中断总开关，然后用到哪个分中断，再打开相对应的控制位就可以了&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;40&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;41&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;42&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;43&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;44&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;45&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;46&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;47&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;48&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;49&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;50&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;51&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;52&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;53&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;54&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;55&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;56&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;57&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;58&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;59&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;60&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;61&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;62&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;#include &amp;lt;reg52.h&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sbit ADDR0 = P1^0;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sbit ADDR1 = P1^1;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sbit ADDR2 = P1^2;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sbit ADDR3 = P1^3;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sbit ENLED = P1^4;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;unsigned char code LedChar[] = &amp;#123; //数码管显示字符转换表&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;0xC0, 0xF9, 0xA4, 0xB0, 0x99, 0x92, 0x82, 0xF8,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;0x80, 0x90, 0x88, 0x83, 0xC6, 0xA1, 0x86, 0x8E&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;unsigned char LedBuff[6] = &amp;#123; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;//数码管显示缓冲区，初值 0xFF 确保启动时都不亮&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;unsigned char i = 0; //动态扫描的索引&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;unsigned int cnt = 0; //记录 T0 中断次数&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;void main()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;unsigned long sec = 0; //记录经过的秒数&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;EA = 1; //使能总中断&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ENLED = 0; //使能 U3，选择控制数码管&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ADDR3 = 1; //因为需要动态改变 ADDR0-2 的值，所以不需要再初始化了&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;TMOD = 0x01; //设置 T0 为模式 1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;TH0 = 0xFC; //为 T0 赋初值 0xFC67，定时 1ms&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;TL0 = 0x67;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ET0 = 1; //使能 T0 中断&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;TR0 = 1; //启动 T0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;while (1)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;if (cnt &amp;gt;= 1000) //判断 T0 溢出是否达到 1000 次&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cnt = 0; //达到 1000 次后计数值清零&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sec++; //秒计数自加 1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;//以下代码将 sec 按十进制位从低到高依次提取并转为数码管显示字符&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;LedBuff[0] = LedChar[sec%10];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;LedBuff[1] = LedChar[sec/10%10];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;LedBuff[2] = LedChar[sec/100%10];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;LedBuff[3] = LedChar[sec/1000%10];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;LedBuff[4] = LedChar[sec/10000%10];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;LedBuff[5] = LedChar[sec/100000%10];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/* 定时器 0 中断服务函数 */&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;void InterruptTimer0() interrupt 1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;TH0 = 0xFC; //重新加载初值&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;TL0 = 0x67;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cnt++; //中断次数计数值加 1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;//以下代码完成数码管动态扫描刷新&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;P0 = 0xFF; //显示消隐&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;switch (i)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;case 0: ADDR2=0; ADDR1=0; ADDR0=0; i++; P0=LedBuff[0]; break;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;case 1: ADDR2=0; ADDR1=0; ADDR0=1; i++; P0=LedBuff[1]; break;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;case 2: ADDR2=0; ADDR1=1; ADDR0=0; i++; P0=LedBuff[2]; break;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;case 3: ADDR2=0; ADDR1=1; ADDR0=1; i++; P0=LedBuff[3]; break;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;case 4: ADDR2=1; ADDR1=0; ADDR0=0; i++; P0=LedBuff[4]; break;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;case 5: ADDR2=1; ADDR1=0; ADDR0=1; i=0; P0=LedBuff[5]; break;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;default: break;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;中断函数的写法：&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;void 函数名() interrupt 中断号 using 工作组&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  中断服务程序内容&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;中断查询序列：&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;中断函数编号&lt;/th&gt;
+&lt;th&gt;中断名称&lt;/th&gt;
+&lt;th&gt;中断标志位&lt;/th&gt;
+&lt;th&gt;中断使能位&lt;/th&gt;
+&lt;th&gt;中断向量地址&lt;/th&gt;
+&lt;th&gt;中断优先级(默认)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;外部中断0&lt;/td&gt;
+&lt;td&gt;IE0&lt;/td&gt;
+&lt;td&gt;EX0&lt;/td&gt;
+&lt;td&gt;0x0003&lt;/td&gt;
+&lt;td&gt;1(最高)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;T0中断&lt;/td&gt;
+&lt;td&gt;TF0&lt;/td&gt;
+&lt;td&gt;ET0&lt;/td&gt;
+&lt;td&gt;0x000B&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;外部中断1&lt;/td&gt;
+&lt;td&gt;IE1&lt;/td&gt;
+&lt;td&gt;EX1&lt;/td&gt;
+&lt;td&gt;0x0013&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;T1中断&lt;/td&gt;
+&lt;td&gt;TF1&lt;/td&gt;
+&lt;td&gt;ET1&lt;/td&gt;
+&lt;td&gt;0x001B&lt;/td&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;UART中断&lt;/td&gt;
+&lt;td&gt;TI/RI&lt;/td&gt;
+&lt;td&gt;ES&lt;/td&gt;
+&lt;td&gt;0x0023&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;T2中断&lt;/td&gt;
+&lt;td&gt;TF2/EXF2&lt;/td&gt;
+&lt;td&gt;ET2&lt;/td&gt;
+&lt;td&gt;0x002B&lt;/td&gt;
+&lt;td&gt;6&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt; &lt;strong&gt;IP——中断优先级寄存器的位分配（ 地址 0xB8、可位寻址）:&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;位&lt;/th&gt;
+&lt;th&gt;7&lt;/th&gt;
+&lt;th&gt;6&lt;/th&gt;
+&lt;th&gt;5&lt;/th&gt;
+&lt;th&gt;4&lt;/th&gt;
+&lt;th&gt;3&lt;/th&gt;
+&lt;th&gt;2&lt;/th&gt;
+&lt;th&gt;1&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;符号&lt;/td&gt;
+&lt;td&gt;–&lt;/td&gt;
+&lt;td&gt;–&lt;/td&gt;
+&lt;td&gt;PT2&lt;/td&gt;
+&lt;td&gt;PS&lt;/td&gt;
+&lt;td&gt;PT1&lt;/td&gt;
+&lt;td&gt;PX1&lt;/td&gt;
+&lt;td&gt;PT0&lt;/td&gt;
+&lt;td&gt;PX0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;复位值&lt;/td&gt;
+&lt;td&gt;–&lt;/td&gt;
+&lt;td&gt;–&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;   &lt;strong&gt;IP——中断优先级寄存器的位描述:&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;位&lt;/th&gt;
+&lt;th&gt;符号&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;7&lt;/td&gt;
+&lt;td&gt;–&lt;/td&gt;
+&lt;td&gt;保留&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;6&lt;/td&gt;
+&lt;td&gt;–&lt;/td&gt;
+&lt;td&gt;保留&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;PT2&lt;/td&gt;
+&lt;td&gt;定时器2中断优先级控制位&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;PS&lt;/td&gt;
+&lt;td&gt;串口中断优先级控制位&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;PT1&lt;/td&gt;
+&lt;td&gt;定时器1中断优先级控制位&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;PX1&lt;/td&gt;
+&lt;td&gt;外部中断1中断优先级控制位&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;PT0&lt;/td&gt;
+&lt;td&gt;定时器0中断优先级控制位&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;PX0&lt;/td&gt;
+&lt;td&gt;外部中断0中断优先级控制位&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;使用：假如设置了PT0位为1后，当单片机在主循环或者任何其它中断程序中执行时，一旦定时器 T0 发生中断，作为更高的优先级，程序马上就会跑到 T0 的中断程序中来执行。&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;上一次简单的介绍了数码管的工作原理，但是只是适用于单个数码管的点亮，如果我们同时要在6个数码管上都看到数字，那就需要我们用到数码管的动态显示：&lt;br&gt; &lt;strong&gt;1.原理：&lt;/strong&gt;&lt;br&gt;　　 多个数码管显示数字的时候，我们实际上是轮流点亮数码管（一个时刻内
+    
+    </summary>
+    
+      <category term="单片机" scheme="http://whykifan.tk/categories/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+    
+    
+      <category term="数码管" scheme="http://whykifan.tk/tags/%E6%95%B0%E7%A0%81%E7%AE%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数码管</title>
+    <link href="http://whykifan.tk/%E6%95%B0%E7%A0%81%E7%AE%A1.html"/>
+    <id>http://whykifan.tk/数码管.html</id>
+    <published>2016-07-17T09:33:22.000Z</published>
+    <updated>2016-07-17T10:28:10.563Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;strong&gt;首先了解几个元件：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;74H138（又称38译码器）&lt;br&gt;&lt;img src=&quot;http://7xvek8.com1.z0.glb.clouddn.com/%E6%95%B0%E7%A0%81%E7%AE%A1%28%E5%8D%95%E7%89%87%E6%9C%BA%29.png&quot; alt=&quot;网络慢图片无法刷新&quot;&gt;&lt;blockquote&gt;
+&lt;p&gt;1.单片机的IO口数量是有限的，有时并满足不了我们的设计需求,为了控制更多的器件，就要使用一些外围的数字芯片。&lt;em&gt;三八译码器，就是把3种输入状态翻译成 8 种输出状态。&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;三八译码器正常工作， ENLED 那个输入位置必须输入低电平，ADDR3 位置必须输入高电平，否则右端输出将一直为高电平。使能：&lt;br&gt;ENLED = 0； ADDR3 = 1；&lt;br&gt;3.&lt;em&gt;74H138真值表:&lt;/em&gt;&lt;br&gt;&lt;img src=&quot;http://7xvek8.com1.z0.glb.clouddn.com/74h138%E7%9C%9F%E5%80%BC%E8%A1%A8%28%E6%95%B0%E7%A0%81%E7%AE%A1%29.png&quot; alt=&quot;真值表&quot;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;2.数码管&lt;br&gt;&lt;img src=&quot;http://7xvek8.com1.z0.glb.clouddn.com/%E6%95%B0%E7%A0%81%E7%AE%A11%28%E5%8D%95%E7%89%87%E6%9C%BA%29.png&quot; alt=&quot;此处输入图片的描述&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;数码管上边有 2 个com，公共端通过的电流较大，并联电路电流之和等于总电流，用2 个 com 可以把公共电流平均到个引脚上去，降低单条线路承受的电流。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;数码管就是由几个LED组成的，所有的LED有一个公共的阴极或者阳极，我们只需要控制DB0-DB7的高低电平，就可以实现不同数字的显示。数码管也有相应的真值表（共阳）:&lt;img src=&quot;http://7xvek8.com1.z0.glb.clouddn.com/%E5%85%B1%E9%98%B3%E6%95%B0%E7%A0%81%E7%AE%A1%E7%9C%9F%E5%80%BC%E8%A1%A8%28%E5%8D%95%E7%89%87%E6%9C%BA%29.png&quot; alt=&quot;网络慢图片刷新不出来&quot;&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;一个简单的数码管应用的例子：&lt;br&gt;数码管连接图：&lt;img src=&quot;http://7xvek8.com1.z0.glb.clouddn.com/%E6%95%B0%E7%A0%81%E7%AE%A1%E7%94%B5%E8%B7%AF%28%E5%8D%95%E7%89%87%E6%9C%BA%29.png&quot; alt=&quot;网络慢无法刷新&quot;&gt;&lt;br&gt;&lt;img src=&quot;http://7xvek8.com1.z0.glb.clouddn.com/%E6%95%B0%E7%A0%81%E7%AE%A1%28%E5%8D%95%E7%89%87%E6%9C%BA%29.png&quot; alt=&quot;网络慢图片无法刷新&quot;&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;#include &amp;lt;reg52.h&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sbit ADDR0 = P1^0;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sbit ADDR1 = P1^1;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sbit ADDR2 = P1^2;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sbit ADDR3 = P1^3;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sbit ENLED = P1^4;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;void main()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ENLED = 0; //使能 U3，选择数码管 DS1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ADDR3 = 1;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ADDR2 = 0;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ADDR1 = 0;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ADDR0 = 0;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;P0 = 0xF9; //点亮数码管段 b 和 c&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;while (1);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;上面代码的会在DS1数码管上显示一个数字1。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;首先了解几个元件：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;74H138（又称38译码器）&lt;br&gt;&lt;img src=&quot;http://7xvek8.com1.z0.glb.clouddn.com/%E6%95%B0%E7%A0%81%E7%AE%A1%28
+    
+    </summary>
+    
+      <category term="单片机" scheme="http://whykifan.tk/categories/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+    
+    
+      <category term="数码管" scheme="http://whykifan.tk/tags/%E6%95%B0%E7%A0%81%E7%AE%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>VerticalBar</title>
+    <link href="http://whykifan.tk/VerticalBar.html"/>
+    <id>http://whykifan.tk/VerticalBar.html</id>
+    <published>2016-07-17T08:32:43.000Z</published>
+    <updated>2016-07-17T08:55:08.607Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;strong&gt;关于自定义垂直进度条的方法：&lt;/strong&gt;&lt;br&gt;　　首先新建一个java文件，让我们自定义的seekbar继承原来的SeekBar,以下的三个构造方法是必须要加入的，否则会在xml文件调用的过程中出错，自定义seekbar样式，需要我们重写它的onDraw()方法，得到我们自己想要的样式。&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;40&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;41&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;42&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;43&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;44&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;45&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;46&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;47&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;48&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;49&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;50&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;51&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;52&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;53&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;54&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;55&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;56&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;57&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;58&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;59&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;60&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;public class verticalSeekBar extends SeekBar&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    private int i = getMax();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    public VerticalSeekBar(Context context, AttributeSet attrs, int defStyleAttr) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        super(context, attrs, defStyleAttr);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    public verticalSeekBar(Context context) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        super(context);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    public verticalSeekBar(Context context, AttributeSet attrs) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        super(context, attrs);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; //以上三个构造方法必须加入，否则会报错在xml中&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    @Override&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    protected void onSizeChanged(int w, int h, int oldw, int oldh)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        super.onSizeChanged(h, w, oldh, oldw);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    @Override&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    protected synchronized void onMeasure(int widthMeasureSpec,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     int heightMeasureSpec)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        super.onMeasure(heightMeasureSpec, widthMeasureSpec);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        setMeasuredDimension(getMeasuredHeight(), getMeasuredWidth());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    @Override&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    protected synchronized void onDraw(Canvas canvas)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        //绘制样式&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        canvas.rotate(-90);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        canvas.translate(-getHeight(), 0);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        super.onDraw(canvas);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        //响应触摸事件&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    @Override&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    public boolean onTouchEvent(MotionEvent event)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        if (!isEnabled())&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            return false;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        switch (event.getAction())&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            case MotionEvent.ACTION_DOWN:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            case MotionEvent.ACTION_MOVE:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            case MotionEvent.ACTION_UP:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                //设置进度&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            setProgress(i- (int) (i * event.getY() / getHeight()));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                onSizeChanged(getWidth(), getHeight(), 0, 0);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                break;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        return true;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;相应的ｘｍｌ引用：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;com.example.anew.blooth.verticalSeekBar&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       android:layout_width=&amp;quot;20dp&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       android:layout_height=&amp;quot;220dp&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       android:id=&amp;quot;@+id/verticalBar1&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       android:max=&amp;quot;100&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       android:progress=&amp;quot;50&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       android:layout_marginRight=&amp;quot;50dp&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       android:layout_alignParentRight=&amp;quot;true&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       android:layout_centerInParent=&amp;quot;true&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;       /&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;效果：&lt;br&gt;&lt;img src=&quot;http://7xvek8.com1.z0.glb.clouddn.com/verticalBar.png&quot; alt=&quot;网络慢图片不见了&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;关于自定义垂直进度条的方法：&lt;/strong&gt;&lt;br&gt;　　首先新建一个java文件，让我们自定义的seekbar继承原来的SeekBar,以下的三个构造方法是必须要加入的，否则会在xml文件调用的过程中出错，自定义seekbar样式，需要我们重写它的onDr
+    
+    </summary>
+    
+      <category term="android" scheme="http://whykifan.tk/categories/android/"/>
+    
+    
+      <category term="VerticalBar" scheme="http://whykifan.tk/tags/VerticalBar/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>“定时器”</title>
+    <link href="http://whykifan.tk/%E5%AE%9A%E6%97%B6%E5%99%A8.html"/>
+    <id>http://whykifan.tk/定时器.html</id>
+    <published>2016-07-13T07:42:32.000Z</published>
+    <updated>2016-07-14T12:20:46.280Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;em&gt;定时器的一些基本概念：&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;1、时钟周期T：时序的最小单位 = 1/单片机的晶振频率；&lt;/p&gt;
+&lt;p&gt;2、机器周期：单片机完成一个操作的最短时间，一个机器周期=12*时钟周期（适用标准51架构单片机，有的单片机比较快，机器周期会更短）；&lt;/p&gt;
+&lt;p&gt;3、定时器和计数器：单片机内部的同一个模块，通过配置SFR(特殊功能寄存器)来实现不同的功能；&lt;br&gt;|TH0，TL0|定时器0的高低八位|&lt;br&gt;|TH1，TL1|定时器1的高低八位|&lt;/p&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;TCON–定时器控制器的位分配（地址0x88、可位寻址）&lt;/em&gt;：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;位&lt;/th&gt;
+&lt;th&gt;7&lt;/th&gt;
+&lt;th&gt;6&lt;/th&gt;
+&lt;th&gt;5&lt;/th&gt;
+&lt;th&gt;4&lt;/th&gt;
+&lt;th&gt;3&lt;/th&gt;
+&lt;th&gt;2&lt;/th&gt;
+&lt;th&gt;1&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;符号&lt;/td&gt;
+&lt;td&gt;TF1&lt;/td&gt;
+&lt;td&gt;TR1&lt;/td&gt;
+&lt;td&gt;TF0&lt;/td&gt;
+&lt;td&gt;TR0&lt;/td&gt;
+&lt;td&gt;IE1&lt;/td&gt;
+&lt;td&gt;IT1&lt;/td&gt;
+&lt;td&gt;IE0&lt;/td&gt;
+&lt;td&gt;IT0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;复位值&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;TF1，TF0：定时器1，0的溢出标志位，溢出时由硬件置1&lt;br&gt;两种清除方式：由软件清零，或进入定时器中断时硬件清零&lt;/p&gt;
+&lt;p&gt;TR1，TR0：定时器1，0运行控制位，软件置1|0来启动|关闭定时器&lt;br&gt;当TR1或TR0 = 1时，定时器每过一个机器周期自动加一&lt;/p&gt;
+&lt;p&gt;IE1，IE0，IT1，IT0:外部中断部分，与定时器无关&lt;/p&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;TMOD–定时器模式寄存器（地址0x89,不可寻址）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;位&lt;/th&gt;
+&lt;th&gt;7&lt;/th&gt;
+&lt;th&gt;6&lt;/th&gt;
+&lt;th&gt;5&lt;/th&gt;
+&lt;th&gt;4&lt;/th&gt;
+&lt;th&gt;3&lt;/th&gt;
+&lt;th&gt;2&lt;/th&gt;
+&lt;th&gt;1&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;符号&lt;/td&gt;
+&lt;td&gt;GATE(T1)&lt;/td&gt;
+&lt;td&gt;C/T(T1)&lt;/td&gt;
+&lt;td&gt;M1(T1)&lt;/td&gt;
+&lt;td&gt;M0(T1)&lt;/td&gt;
+&lt;td&gt;GATE(T0)&lt;/td&gt;
+&lt;td&gt;C/T(T0)&lt;/td&gt;
+&lt;td&gt;M1(T0)&lt;/td&gt;
+&lt;td&gt;M0(T0)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;复位值&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;T1/T0:&lt;/strong&gt;&lt;br&gt; T1 表示控制定时器 1 的位，标 T0 的表示控制定时器 0的位。&lt;br&gt;&lt;strong&gt;GATE:&lt;/strong&gt;&lt;br&gt;该位被置 1 时为门控位。仅当„INTx‟脚为高并且„TRx‟控制位被置 1 时使能&lt;br&gt;定时器„x‟，定时器开始计时，当该位被清 0 时，只要„TRx‟位被置 1，定时&lt;br&gt;器 x 就使能开始计时，不受到单片机引脚„INTx‟外部信号的干扰，常用来测&lt;br&gt;量外部信号脉冲宽度。这是定时器一个额外功能。&lt;br&gt;&lt;strong&gt;C/T:&lt;/strong&gt;&lt;br&gt;定时器或计数器选择位。该位被清零时用作定时器功能（ 内部系统时钟），&lt;br&gt;被置 1 用作计数器功能。&lt;/p&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;M1/M0 工作模式:&lt;/strong&gt;&lt;br&gt;1、MI=0,M0=0，工作模式0:&lt;br&gt;兼容 8048 单片机的 13 位定时器， THn 的 8 位和 TLn 的 5 位组&lt;br&gt;成一个 13 位定时器。&lt;br&gt;2、M1=0,M0=1，工作模式1:&lt;br&gt;THn 和 TLn 组成一个 16 位的定时器。&lt;br&gt;3、M1=1,M0=0，工作模式2:&lt;br&gt;8 位自动重装模式，定时器溢出后 THn 重装到 TLn 中。&lt;br&gt;4、M1=1,M0=1，工作模式3:&lt;br&gt;禁用定时器 1，定时器 0 变成 2 个 8 位定时器。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;定时器使用的步骤：&lt;/strong&gt;&lt;br&gt;假如我们配置定时器0&lt;br&gt;第一步：设置特殊功能寄存器 TMOD，配置好工作模式。&lt;br&gt;第二步：设置计数寄存器 TH0 和 TL0 的初值。&lt;br&gt;第三步：设置 TCON，通过 TR0 置 1 来让定时器开始计数。&lt;br&gt;第四步：判断 TCON 寄存器的 TF0 位，监测定时器溢出情况。&lt;/p&gt;
+&lt;p&gt;设定TH0与TL0的初始值的时候，根据延时的时间，我们要让定时其溢出时经过的时间刚好是我们想要的，也就是x个机器周期等与我们所要的延时时间&lt;br&gt;例如：&lt;br&gt;&lt;code&gt;THO = 65535 - x，THL = 0;&lt;/code&gt;&lt;br&gt;定时器一般会有一个最大的延时范围，想要更长时间的延时可以通过判断TF标志位循环检测来实现。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;em&gt;定时器的一些基本概念：&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;1、时钟周期T：时序的最小单位 = 1/单片机的晶振频率；&lt;/p&gt;
+&lt;p&gt;2、机器周期：单片机完成一个操作的最短时间，一个机器周期=12*时钟周期（适用标准51架构单片机，有的单片机比较快，机器周期会更短）；&lt;/p&gt;
+
+    
+    </summary>
+    
+      <category term="单片机" scheme="http://whykifan.tk/categories/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+    
+    
+      <category term="定时器" scheme="http://whykifan.tk/tags/%E5%AE%9A%E6%97%B6%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>毕业</title>
+    <link href="http://whykifan.tk/%E6%AF%95%E4%B8%9A.html"/>
+    <id>http://whykifan.tk/毕业.html</id>
+    <published>2016-06-11T23:04:39.000Z</published>
+    <updated>2016-06-29T01:57:10.028Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;上天给人一份困难时，同时也给人一份智慧。转眼间大学四年就要结束，真心祝愿所有毕业的学长学姐们在未来的路上越走越好。&quot;&gt;&lt;a href=&quot;#上天给人一份困难时，同时也给人一份智慧。转眼间大学四年就要结束，真心祝愿所有毕业的学长学姐们在未来的路上越走越好。&quot; class=&quot;headerlink&quot; title=&quot;上天给人一份困难时，同时也给人一份智慧。转眼间大学四年就要结束，真心祝愿所有毕业的学长学姐们在未来的路上越走越好。&quot;&gt;&lt;/a&gt;上天给人一份困难时，同时也给人一份智慧。转眼间大学四年就要结束，真心祝愿所有毕业的学长学姐们在未来的路上越走越好。&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;附上学校金鱼照一张O(∩_∩)O：&lt;br&gt;  &lt;img src=&quot;http://7xvek8.com1.z0.glb.clouddn.com/%E5%AD%A6%E6%A0%A1.jpg&quot; alt=&quot;网络慢，图片刷不出来喽&quot;&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;iframe height=&quot;400&quot; width=&quot;490&quot; src=&quot;http://player.youku.com/embed/XMTI1ODU2MTg0MA==&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;上天给人一份困难时，同时也给人一份智慧。转眼间大学四年就要结束，真心祝愿所有毕业的学长学姐们在未来的路上越走越好。&quot;&gt;&lt;a href=&quot;#上天给人一份困难时，同时也给人一份智慧。转眼间大学四年就要结束，真心祝愿所有毕业的学长学姐们在未来的路上越走越好。&quot; clas
+    
+    </summary>
+    
+      <category term="毕业" scheme="http://whykifan.tk/categories/%E6%AF%95%E4%B8%9A/"/>
+    
+    
+      <category term="毕业" scheme="http://whykifan.tk/tags/%E6%AF%95%E4%B8%9A/"/>
+    
+  </entry>
+  
+</feed>

@@ -1,0 +1,976 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="wfJ_mnQm3vXRSh_p4DRMHijoajwYVSMIPn6Yk1RTMz8" />
+
+
+
+
+  <meta name="baidu-site-verification" content="CEPPwJ7q5Q" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="IC2总线," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="whykifan的博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="IC2总线一直是单片机学习的过程中比较难的一个环节，其实只要你搞清了它的工作时序，也就没有那么难，无非就是三个部分而已：　　　　　　　　　　起始信号–读/写数据–停止信号本文的讲解顺序：起始信号，停止信号，读/写数据（由易到难），阅读完此文大约需要十分钟。1.IC2了解：在硬件上，I2C总线是由时钟总线SCL和数据总线SDA两条线构成，连接到总线上的所有器件的 SCL都连到一起，所有SDA都">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IC2总线简单学习">
+<meta property="og:url" content="http://whykifan.cf/2016/07/24/IC2总线简单学习/index.html">
+<meta property="og:site_name" content="whykifan的博客">
+<meta property="og:description" content="IC2总线一直是单片机学习的过程中比较难的一个环节，其实只要你搞清了它的工作时序，也就没有那么难，无非就是三个部分而已：　　　　　　　　　　起始信号–读/写数据–停止信号本文的讲解顺序：起始信号，停止信号，读/写数据（由易到难），阅读完此文大约需要十分钟。1.IC2了解：在硬件上，I2C总线是由时钟总线SCL和数据总线SDA两条线构成，连接到总线上的所有器件的 SCL都连到一起，所有SDA都">
+<meta property="og:image" content="http://7xvek8.com1.z0.glb.clouddn.com/IC2%28%E5%8D%95%E5%93%81%E6%9C%BA%29.png">
+<meta property="og:image" content="http://7xvek8.com1.z0.glb.clouddn.com/IC2%E6%97%B6%E5%BA%8F%E5%9B%BE%28%E5%8D%95%E5%93%81%E6%9C%BA%29.png">
+<meta property="og:updated_time" content="2016-07-24T10:45:42.731Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="IC2总线简单学习">
+<meta name="twitter:description" content="IC2总线一直是单片机学习的过程中比较难的一个环节，其实只要你搞清了它的工作时序，也就没有那么难，无非就是三个部分而已：　　　　　　　　　　起始信号–读/写数据–停止信号本文的讲解顺序：起始信号，停止信号，读/写数据（由易到难），阅读完此文大约需要十分钟。1.IC2了解：在硬件上，I2C总线是由时钟总线SCL和数据总线SDA两条线构成，连接到总线上的所有器件的 SCL都连到一起，所有SDA都">
+<meta name="twitter:image" content="http://7xvek8.com1.z0.glb.clouddn.com/IC2%28%E5%8D%95%E5%93%81%E6%9C%BA%29.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://whykifan.cf/2016/07/24/IC2总线简单学习/"/>
+
+  <title> IC2总线简单学习 | whykifan的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?3a5e9380f88d2457dfa5e249e656efd7";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">whykifan的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tree"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-message">
+          <a href="/message" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-edit"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-thanks">
+          <a href="/thanks" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            感谢
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+	  <li> <a title="如果你点击这里，请不要以为网站出错，这只是一个特效，相信我它会停止的" href='javascript:(function() {
+    function c() {
+        var e = document.createElement("link");
+        e.setAttribute("type", "text/css");
+        e.setAttribute("rel", "stylesheet");
+        e.setAttribute("href", f);
+        e.setAttribute("class", l);
+        document.body.appendChild(e)
+    }
+ 
+    function h() {
+        var e = document.getElementsByClassName(l);
+        for (var t = 0; t < e.length; t++) {
+            document.body.removeChild(e[t])
+        }
+    }
+ 
+    function p() {
+        var e = document.createElement("div");
+        e.setAttribute("class", a);
+        document.body.appendChild(e);
+        setTimeout(function() {
+            document.body.removeChild(e)
+        }, 100)
+    }
+ 
+    function d(e) {
+        return {
+            height : e.offsetHeight,
+            width : e.offsetWidth
+        }
+    }
+ 
+    function v(i) {
+        var s = d(i);
+        return s.height > e && s.height < n && s.width > t && s.width < r
+    }
+ 
+    function m(e) {
+        var t = e;
+        var n = 0;
+        while (!!t) {
+            n += t.offsetTop;
+            t = t.offsetParent
+        }
+        return n
+    }
+ 
+    function g() {
+        var e = document.documentElement;
+        if (!!window.innerWidth) {
+            return window.innerHeight
+        } else if (e && !isNaN(e.clientHeight)) {
+            return e.clientHeight
+        }
+        return 0
+    }
+ 
+    function y() {
+        if (window.pageYOffset) {
+            return window.pageYOffset
+        }
+        return Math.max(document.documentElement.scrollTop, document.body.scrollTop)
+    }
+ 
+    function E(e) {
+        var t = m(e);
+        return t >= w && t <= b + w
+    }
+ 
+    function S() {
+        var e = document.createElement("audio");
+        e.setAttribute("class", l);
+        e.src = i;
+        e.loop = false;
+        e.addEventListener("canplay", function() {
+            setTimeout(function() {
+                x(k)
+            }, 500);
+            setTimeout(function() {
+                N();
+                p();
+                for (var e = 0; e < O.length; e++) {
+                    T(O[e])
+                }
+            }, 15500)
+        }, true);
+        e.addEventListener("ended", function() {
+            N();
+            h()
+        }, true);
+        e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+        document.body.appendChild(e);
+        e.play()
+    }
+ 
+    function x(e) {
+        e.className += " " + s + " " + o
+    }
+ 
+    function T(e) {
+        e.className += " " + s + " " + u[Math.floor(Math.random() * u.length)]
+    }
+ 
+    function N() {
+        var e = document.getElementsByClassName(s);
+        var t = new RegExp("\\b" + s + "\\b");
+        for (var n = 0; n < e.length; ) {
+            e[n].className = e[n].className.replace(t, "")
+        }
+    }
+ 
+    var e = 30;
+    var t = 30;
+    var n = 350;
+    var r = 350;
+    var i = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake.mp3";
+    var s = "mw-harlem_shake_me";
+    var o = "im_first";
+    var u = ["im_drunk", "im_baked", "im_trippin", "im_blown"];
+    var a = "mw-strobe_light";
+    var f = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";
+    var l = "mw_added_css";
+    var b = g();
+    var w = y();
+    var C = document.getElementsByTagName("*");
+    var k = null;
+    for (var L = 0; L < C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            if (E(A)) {
+                k = A;
+                break
+            }
+        }
+    }
+    if (A === null) {
+        console.warn("Could not find a node of the right size. Please try a different page.");
+        return
+    }
+    c();
+    S();
+    var O = [];
+    for (var L = 0; L < C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            O.push(A)
+        }
+    }
+})()    '>High一下</a> </li>
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'yXWW_MG9o-KBWagx2VZX','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                IC2总线简单学习
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-24T17:25:02+08:00" content="2016-07-24">
+              2016-07-24
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/单品机/" itemprop="url" rel="index">
+                    <span itemprop="name">单品机</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/24/IC2总线简单学习/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/24/IC2总线简单学习/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>　　　IC2总线一直是单片机学习的过程中比较难的一个环节，其实只要你搞清了它的工作时序，也就没有那么难，无非就是三个部分而已：<br>　　　　　　　　　　<strong>起始信号–读/写数据–停止信号</strong><br>本文的讲解顺序：起始信号，停止信号，读/写数据（由易到难），阅读完此文大约需要十分钟。<br><strong>1.IC2了解：</strong><br>在硬件上，I2C总线是由时钟总线SCL和数据总线SDA两条线构成，连接到总线上的所有器件的 SCL都连到一起，所有SDA都连到一起。I2C总线是开漏引脚并联的结构，因此我们外部要添加上拉电阻。对于开漏电路外部加上拉电阻，就组成了线“与”的关系。总线上线“与”的关系就是说，所有接入的器件保持高电平，这条线才是高电平，而任何一个器件输出一个低电平，那这条线就会保持低电平，因此可以做到任何一个器件都可以拉低电平，也就是任何一个器件都可以作为主机。</p>
+<p><img src="http://7xvek8.com1.z0.glb.clouddn.com/IC2%28%E5%8D%95%E5%93%81%E6%9C%BA%29.png" alt="network error"><br><strong>2.IC2通信时序&amp;程序</strong><br><em>IC2时序图：</em><br><img src="http://7xvek8.com1.z0.glb.clouddn.com/IC2%E6%97%B6%E5%BA%8F%E5%9B%BE%28%E5%8D%95%E5%93%81%E6%9C%BA%29.png" alt="network error"></p>
+<blockquote>
+<p>2.1起始信号<br>由图可知，I2C 通信的起始信号的定义是SCL为高电平期间，SDA由高电平向低电平变化产生一个下降沿，表示起始信号。</p>
+</blockquote>
+<p> <em>代码写法：</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">void I2CStart()</span><br><span class="line">&#123;</span><br><span class="line">I2C_SDA = 1; //首先确保 SDA、 SCL 都是高电平</span><br><span class="line">I2C_SCL = 1;</span><br><span class="line">I2CDelay();  //延时函数，一般延时为4-5个机器周期（_nop_）</span><br><span class="line">I2C_SDA = 0; //先拉低 SDA</span><br><span class="line">I2CDelay();</span><br><span class="line">I2C_SCL = 0; //再拉低 SCL</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>2.2信号结束<br> I2C 通信停止信号的定义是SCL为高电平期间，SDA由低电平向高电平变化产生一个上升沿，表示结束信号。</p>
+</blockquote>
+<p> 代码写法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> void I2CStop()  </span><br><span class="line">&#123;</span><br><span class="line">I2C_SCL = 0; //首先确保 SDA、 SCL 都是低电平</span><br><span class="line">I2C_SDA = 0;</span><br><span class="line">I2CDelay();</span><br><span class="line">I2C_SCL = 1; //先拉高 SCL</span><br><span class="line">I2CDelay();</span><br><span class="line">I2C_SDA = 1; //再拉高 SDA</span><br><span class="line">I2CDelay();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>2.3数据传输<br> 因为这一部分，内容多一些，所以放在最后来写。</p>
+<blockquote>
+<p>I2C 没有固定波特率，但是有时序的要求，要求当 SCL 在低电平的时候， SDA 允许变化，也就是说，发送方必须先保持SCL是低电平，才可以改变数据线 SDA，输出要发送的当前数据的一位（写数据）；而当SCL在高电平的时候， SDA绝对不可以变化，因为这个时候，接收方要来读取当前SDA的电平信号是 0 还是 1，因此要保证 SDA 的稳定（读数据）。</p>
+<blockquote>
+<p>2.3.1 <strong>I2C 寻址模式</strong><br>I2C 通信的起始信号(Start)后，首先要发送一个从机的地址，这个地址一共有 7位，紧跟着的第8位是数据方向位(R/W)，“0”表示接下来要发送数据（写），“ 1”表示接下来是请求数据（读）。我们发送完了这 7 位地址和 1 位方向后，如果发送的这个地址确实存在，那么这个地址的器件应该回应一个 ACK（拉低 SDA 即输出“0”），如果不存在，就没回应ACK（SDA将保持高电平即“ 1”）。</p>
+<blockquote>
+<p>应答位ACK：我们写数据的时候总线可以返回一个ACK则证明我们的数据写入成功。<br>非应答位NAK：我们读取数据的时候发送一个非应答位来告诉IC2总线我们不想要数据了（此时令SCL = 0,因为读取数据的时候SCL要稳定保持高电平）。</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>程序代码：（写数据函数:要求当 SCL 在低电平的时候， SDA 允许变化，也就是说，发送方必须先保持SCL是低电平，才可以改变数据线 SDA，输出要发送的当前数据的一位（写数据）。）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">bit I2CWrite(unsigned char dat)</span><br><span class="line">&#123;</span><br><span class="line">bit ack; //用于暂存应答位的值</span><br><span class="line">unsigned char mask; //用于探测字节内某一位值的掩码变量</span><br><span class="line"></span><br><span class="line">//由时序图可知，数据是一位一位写的，循环写8次，也就写入了一个字节</span><br><span class="line">for (mask=0x80; mask!=0; mask&gt;&gt;=1) //从高位到低位依次进行</span><br><span class="line">&#123;</span><br><span class="line">if ((mask&amp;dat) == 0) //该位的值输出到 SDA 上</span><br><span class="line">I2C_SDA = 0;    </span><br><span class="line">else</span><br><span class="line">I2C_SDA = 1;</span><br><span class="line">I2CDelay();</span><br><span class="line">//由时序图知，SDA写入一位数据后，scl要先拉高再拉低，再写第二位数据</span><br><span class="line">I2C_SCL = 1; </span><br><span class="line">I2CDelay();</span><br><span class="line">I2C_SCL = 0; //再拉低 SCL，完成一个位周期</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">I2C_SDA = 1; //8 位数据发送完后，主机释放 SDA，以检测从机应答</span><br><span class="line">I2CDelay();</span><br><span class="line">I2C_SCL = 1; //拉高 SCL</span><br><span class="line">ack = I2C_SDA; //读取此时的 SDA 值，即为从机的应答值</span><br><span class="line">I2CDelay();</span><br><span class="line">I2C_SCL = 0; //再拉低 SCL 完成应答位，并保持住总线</span><br><span class="line">return ~ack; //返回从机应答值,去反后符合正常的逻辑，有即用1代表</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>有了上面的函数，我们其实可以用来判断一个地址是否存在，即寻址函数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">/* I2C 寻址函数，即检查地址为 addr 的器件是否存在，返回值-从器件应答值 */</span><br><span class="line">bit I2CAddressing(unsigned char addr)</span><br><span class="line">&#123;</span><br><span class="line">bit ack;</span><br><span class="line">I2CStart(); //产生起始位，即启动一次总线操作</span><br><span class="line">ack = I2CWrite(addr&lt;&lt;1); //器件地址需左移一位，因寻址命令的最低位</span><br><span class="line">//为读写位，用于表示之后的操作是读或写</span><br><span class="line">I2CStop(); //不需进行后续读写，而直接停止本次总线操作</span><br><span class="line">return ack;  //ack为1则证明存在地址，为0则不存在</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>（读数据函数:而当SCL在高电平的时候，SDA绝对不可以变化，因为这个时候，接收方要来读取当前SDA的电平信号是 0 还是 1，因此要保证 SDA 的稳定（读数据）。)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">/* I2C 总线读操作，并发送非应答信号，返回值-读到的字节 */</span><br><span class="line">unsigned char I2CReadNAK()</span><br><span class="line">&#123;</span><br><span class="line">unsigned char mask;</span><br><span class="line">unsigned char dat;</span><br><span class="line">I2C_SDA = 1; //首先确保主机释放 SDA</span><br><span class="line"></span><br><span class="line">//从高位到低位依次进行，同样参照时序图</span><br><span class="line">for (mask=0x80; mask!=0; mask&gt;&gt;=1) </span><br><span class="line">&#123;</span><br><span class="line">I2CDelay();</span><br><span class="line">I2C_SCL = 1; //拉高 SCL</span><br><span class="line">if(I2C_SDA == 0) //读取 SDA 的值</span><br><span class="line">dat &amp;= ~mask; //为 0 时， dat 中对应位清零</span><br><span class="line">else</span><br><span class="line">dat |= mask; //为 1 时， dat 中对应位置 1</span><br><span class="line">I2CDelay();</span><br><span class="line">I2C_SCL = 0; //再拉低 SCL，以使从机发送出下一位</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">I2C_SDA = 1; //8 位数据发送完后，拉高 SDA，发送非应答信号</span><br><span class="line">I2CDelay();</span><br><span class="line">I2C_SCL = 1; //拉高 SCL</span><br><span class="line">I2CDelay();</span><br><span class="line">I2C_SCL = 0; //再拉低 SCL 完成非应答位，并保持住总线</span><br><span class="line">return dat;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>3.总结：</strong><br>通常情况下，只要我们掌握以上几个IC2函数以后，基本上可以应对很大一部分的元器件，这些器件要求的不同的地方可能也就是写命令的内容与顺序了，比如我们在EEROM中读取入一个字节：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">/* 读取 EEPROM 中的一个字节， addr-字节地址 */</span><br><span class="line">unsigned char E2ReadByte(unsigned char addr)</span><br><span class="line">&#123;</span><br><span class="line">unsigned char dat;</span><br><span class="line">I2CStart();</span><br><span class="line">I2CWrite(0x50&lt;&lt;1); //寻址器件，后续为写操作</span><br><span class="line">I2CWrite(addr); //写入存储地址</span><br><span class="line">I2CStart(); //发送重复启动信号</span><br><span class="line">I2CWrite((0x50&lt;&lt;1)|0x01); //寻址器件，后续为读操作，配置为读模式</span><br><span class="line">dat = I2CReadNAK(); //读取一个字节数据</span><br><span class="line">I2CStop();</span><br><span class="line">return dat;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 向 EEPROM 中写入一个字节， addr-字节地址 */</span><br><span class="line">void E2WriteByte(unsigned char addr, unsigned char dat)</span><br><span class="line">&#123;   </span><br><span class="line">//先寻址，再写数据</span><br><span class="line">I2CStart();</span><br><span class="line">I2CWrite(0x50&lt;&lt;1); //寻址器件，后续为写操作，配置为写模式</span><br><span class="line">I2CWrite(addr); //写入存储地址</span><br><span class="line">I2CWrite(dat); //写入一个字节数据</span><br><span class="line">I2CStop();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>由上可知，这些使用到IC2的元器件，其实也就是在来回的调用IC2的几个基本函数而已，只要使用此类元器件的时候，只要我们阅读其使用手册，在去调用这几个IC2函数进行相应的配置即可。</strong></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>您的支持是我不断创作的动力！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://7xvek8.com1.z0.glb.clouddn.com/wechatpay.jpg" alt="whykifan WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="http://7xvek8.com1.z0.glb.clouddn.com/alipay.jpg" alt="whykifan Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/IC2总线/" rel="tag">#IC2总线</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/22/开发部纪念/" rel="next" title="开发部纪念">
+                <i class="fa fa-chevron-left"></i> 开发部纪念
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/28/android得到版本信息/" rel="prev" title="android得到版本信息">
+                android得到版本信息 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/07/24/IC2总线简单学习/"
+           data-title="IC2总线简单学习" data-url="http://whykifan.cf/2016/07/24/IC2总线简单学习/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="whykifan" />
+          <p class="site-author-name" itemprop="name">whykifan</p>
+          <p class="site-description motion-element" itemprop="description">You bet whole life happiness on me How could I let you lose</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/kissmise" target="_blank" rel="external nofollow">GitHub</a>
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/kisswhy" target="_blank" rel="external nofollow">知乎</a>
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">whykifan</span>
+</div>
+
+
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"whykifan"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+
+  
+  
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+
+</body>
+</html>
