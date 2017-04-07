@@ -1,0 +1,1018 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="wfJ_mnQm3vXRSh_p4DRMHijoajwYVSMIPn6Yk1RTMz8" />
+
+
+
+
+  <meta name="baidu-site-verification" content="CEPPwJ7q5Q" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="opencv," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="whykifan的博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="opencvCameo程序的基础建立这俩个基本文件的建立，提供了一个可以显示摄像头帧、监听键盘输入及记录截图和截屏的应用，为以后其他功能的学习提供了基础。
+
+在工程当中新建managers.py
+
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455">
+<meta property="og:type" content="article">
+<meta property="og:title" content="opencvCameo程序基础建立">
+<meta property="og:url" content="http://whykifan.tk/opencvCameo程序基础建立.html">
+<meta property="og:site_name" content="whykifan的博客">
+<meta property="og:description" content="opencvCameo程序的基础建立这俩个基本文件的建立，提供了一个可以显示摄像头帧、监听键盘输入及记录截图和截屏的应用，为以后其他功能的学习提供了基础。
+
+在工程当中新建managers.py
+
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455">
+<meta property="og:updated_time" content="2017-04-07T12:32:35.680Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="opencvCameo程序基础建立">
+<meta name="twitter:description" content="opencvCameo程序的基础建立这俩个基本文件的建立，提供了一个可以显示摄像头帧、监听键盘输入及记录截图和截屏的应用，为以后其他功能的学习提供了基础。
+
+在工程当中新建managers.py
+
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+  <link rel="canonical" href="http://whykifan.tk/opencvCameo程序基础建立.html"/>
+
+  <title> opencvCameo程序基础建立 | whykifan的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?3a5e9380f88d2457dfa5e249e656efd7";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">whykifan的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tree"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-message">
+          <a href="/message" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-edit"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-thanks">
+          <a href="/thanks" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            感谢
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+	  <li> <a title="如果你点击这里，请不要以为网站出错，这只是一个特效，相信我它会停止的" href='javascript:(function() {
+    function c() {
+        var e = document.createElement("link");
+        e.setAttribute("type", "text/css");
+        e.setAttribute("rel", "stylesheet");
+        e.setAttribute("href", f);
+        e.setAttribute("class", l);
+        document.body.appendChild(e)
+    }
+ 
+    function h() {
+        var e = document.getElementsByClassName(l);
+        for (var t = 0; t < e.length; t++) {
+            document.body.removeChild(e[t])
+        }
+    }
+ 
+    function p() {
+        var e = document.createElement("div");
+        e.setAttribute("class", a);
+        document.body.appendChild(e);
+        setTimeout(function() {
+            document.body.removeChild(e)
+        }, 100)
+    }
+ 
+    function d(e) {
+        return {
+            height : e.offsetHeight,
+            width : e.offsetWidth
+        }
+    }
+ 
+    function v(i) {
+        var s = d(i);
+        return s.height > e && s.height < n && s.width > t && s.width < r
+    }
+ 
+    function m(e) {
+        var t = e;
+        var n = 0;
+        while (!!t) {
+            n += t.offsetTop;
+            t = t.offsetParent
+        }
+        return n
+    }
+ 
+    function g() {
+        var e = document.documentElement;
+        if (!!window.innerWidth) {
+            return window.innerHeight
+        } else if (e && !isNaN(e.clientHeight)) {
+            return e.clientHeight
+        }
+        return 0
+    }
+ 
+    function y() {
+        if (window.pageYOffset) {
+            return window.pageYOffset
+        }
+        return Math.max(document.documentElement.scrollTop, document.body.scrollTop)
+    }
+ 
+    function E(e) {
+        var t = m(e);
+        return t >= w && t <= b + w
+    }
+ 
+    function S() {
+        var e = document.createElement("audio");
+        e.setAttribute("class", l);
+        e.src = i;
+        e.loop = false;
+        e.addEventListener("canplay", function() {
+            setTimeout(function() {
+                x(k)
+            }, 500);
+            setTimeout(function() {
+                N();
+                p();
+                for (var e = 0; e < O.length; e++) {
+                    T(O[e])
+                }
+            }, 15500)
+        }, true);
+        e.addEventListener("ended", function() {
+            N();
+            h()
+        }, true);
+        e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+        document.body.appendChild(e);
+        e.play()
+    }
+ 
+    function x(e) {
+        e.className += " " + s + " " + o
+    }
+ 
+    function T(e) {
+        e.className += " " + s + " " + u[Math.floor(Math.random() * u.length)]
+    }
+ 
+    function N() {
+        var e = document.getElementsByClassName(s);
+        var t = new RegExp("\\b" + s + "\\b");
+        for (var n = 0; n < e.length; ) {
+            e[n].className = e[n].className.replace(t, "")
+        }
+    }
+ 
+    var e = 30;
+    var t = 30;
+    var n = 350;
+    var r = 350;
+    var i = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake.mp3";
+    var s = "mw-harlem_shake_me";
+    var o = "im_first";
+    var u = ["im_drunk", "im_baked", "im_trippin", "im_blown"];
+    var a = "mw-strobe_light";
+    var f = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";
+    var l = "mw_added_css";
+    var b = g();
+    var w = y();
+    var C = document.getElementsByTagName("*");
+    var k = null;
+    for (var L = 0; L < C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            if (E(A)) {
+                k = A;
+                break
+            }
+        }
+    }
+    if (A === null) {
+        console.warn("Could not find a node of the right size. Please try a different page.");
+        return
+    }
+    c();
+    S();
+    var O = [];
+    for (var L = 0; L < C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            O.push(A)
+        }
+    }
+})()    '>High一下</a> </li>
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'yXWW_MG9o-KBWagx2VZX','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                opencvCameo程序基础建立
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-07T20:20:23+08:00" content="2017-04-07">
+              2017-04-07
+            </time>
+          </span>
+			
+			<span id="busuanzi_container_page_pv">  |  热度:<span id="busuanzi_value_page_pv"></span>℃</span>
+			
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/opencv/" itemprop="url" rel="index">
+                    <span itemprop="name">opencv</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/opencvCameo程序基础建立.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="opencvCameo程序基础建立.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="opencvCameo程序的基础建立"><a href="#opencvCameo程序的基础建立" class="headerlink" title="opencvCameo程序的基础建立"></a>opencvCameo程序的基础建立</h1><p><strong>这俩个基本文件的建立，提供了一个可以显示摄像头帧、监听键盘输入及记录截图和截屏的应用，为以后其他功能的学习提供了基础。</strong></p>
+<blockquote>
+<p>在工程当中新建managers.py</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CaptureManager</span><span class="params">(object)</span>:</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, capture, previewWindowManager = None,</span><br><span class="line">                 shouldMirrorPreview = False)</span>:</span></span><br><span class="line">        </span><br><span class="line">        self.previewWindowManager = previewWindowManager</span><br><span class="line">        self.shouldMirrorPreview = shouldMirrorPreview</span><br><span class="line">        </span><br><span class="line">        self._capture = capture</span><br><span class="line">        self._channel = <span class="number">0</span></span><br><span class="line">        self._enteredFrame = <span class="keyword">False</span></span><br><span class="line">        self._frame = <span class="keyword">None</span></span><br><span class="line">        self._imageFilename = <span class="keyword">None</span></span><br><span class="line">        self._videoFilename = <span class="keyword">None</span></span><br><span class="line">        self._videoEncoding = <span class="keyword">None</span></span><br><span class="line">        self._videoWriter = <span class="keyword">None</span></span><br><span class="line">        </span><br><span class="line">        self._startTime = <span class="keyword">None</span></span><br><span class="line">        self._framesElapsed = long(<span class="number">0</span>)</span><br><span class="line">        self._fpsEstimate = <span class="keyword">None</span></span><br><span class="line">    </span><br><span class="line"><span class="meta">    @property</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">channel</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self._channel</span><br><span class="line">    </span><br><span class="line"><span class="meta">    @channel.setter</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">channel</span><span class="params">(self, value)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self._channel != value:</span><br><span class="line">            self._channel = value</span><br><span class="line">            self._frame = <span class="keyword">None</span></span><br><span class="line">    </span><br><span class="line"><span class="meta">    @property</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">frame</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self._enteredFrame <span class="keyword">and</span> self._frame <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">            <span class="comment"># As of OpenCV 3.0, VideoCapture.retrieve() no longer supports</span></span><br><span class="line">            <span class="comment"># the channel argument.</span></span><br><span class="line">            <span class="comment"># _, self._frame = self._capture.retrieve(channel = self.channel)</span></span><br><span class="line">            _, self._frame = self._capture.retrieve()</span><br><span class="line">        <span class="keyword">return</span> self._frame</span><br><span class="line">    </span><br><span class="line"><span class="meta">    @property</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isWritingImage</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self._imageFilename <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span></span><br><span class="line">    </span><br><span class="line"><span class="meta">    @property</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isWritingVideo</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self._videoFilename <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">enterFrame</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""Capture the next frame, if any."""</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># But first, check that any previous frame was exited.</span></span><br><span class="line">        <span class="keyword">assert</span> <span class="keyword">not</span> self._enteredFrame, \</span><br><span class="line">            <span class="string">'previous enterFrame() had no matching exitFrame()'</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> self._capture <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>:</span><br><span class="line">            self._enteredFrame = self._capture.grab()</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">exitFrame</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""Draw to the window. Write to files. Release the frame."""</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># Check whether any grabbed frame is retrievable.</span></span><br><span class="line">        <span class="comment"># The getter may retrieve and cache the frame.</span></span><br><span class="line">        <span class="keyword">if</span> self.frame <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">            self._enteredFrame = <span class="keyword">False</span></span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># Update the FPS estimate and related variables.</span></span><br><span class="line">        <span class="keyword">if</span> self._framesElapsed == <span class="number">0</span>:</span><br><span class="line">            self._startTime = time.time()</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            timeElapsed = time.time() - self._startTime</span><br><span class="line">            self._fpsEstimate =  self._framesElapsed / timeElapsed</span><br><span class="line">        self._framesElapsed += <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># Draw to the window, if any.</span></span><br><span class="line">        <span class="keyword">if</span> self.previewWindowManager <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>:</span><br><span class="line">            <span class="keyword">if</span> self.shouldMirrorPreview:</span><br><span class="line">                <span class="comment"># fliplr上下方向翻转数组，也就是翻转图像</span></span><br><span class="line">                mirroredFrame = numpy.fliplr(self._frame).copy()</span><br><span class="line">                self.previewWindowManager.show(mirroredFrame)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                self.previewWindowManager.show(self._frame)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># Write to the image file, if any.</span></span><br><span class="line">        <span class="keyword">if</span> self.isWritingImage:</span><br><span class="line">            cv2.imwrite(self._imageFilename, self._frame)</span><br><span class="line">            self._imageFilename = <span class="keyword">None</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># Write to the video file, if any.</span></span><br><span class="line">        self._writeVideoFrame()</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># Release the frame.</span></span><br><span class="line">        self._frame = <span class="keyword">None</span></span><br><span class="line">        self._enteredFrame = <span class="keyword">False</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">writeImage</span><span class="params">(self, filename)</span>:</span></span><br><span class="line">        <span class="string">"""Write the next exited frame to an image file."""</span></span><br><span class="line">        self._imageFilename = filename</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">startWritingVideo</span><span class="params">(</span><br><span class="line">            self, filename,</span><br><span class="line">            encoding = cv2.VideoWriter_fourcc<span class="params">(<span class="string">'M'</span>,<span class="string">'J'</span>,<span class="string">'P'</span>,<span class="string">'G'</span>)</span>)</span>:</span></span><br><span class="line">        <span class="string">"""Start writing exited frames to a video file."""</span></span><br><span class="line">        self._videoFilename = filename</span><br><span class="line">        self._videoEncoding = encoding</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">stopWritingVideo</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""Stop writing exited frames to a video file."""</span></span><br><span class="line">        self._videoFilename = <span class="keyword">None</span></span><br><span class="line">        self._videoEncoding = <span class="keyword">None</span></span><br><span class="line">        self._videoWriter = <span class="keyword">None</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_writeVideoFrame</span><span class="params">(self)</span>:</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> self.isWritingVideo:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> self._videoWriter <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">            fps = self._capture.get(cv2.CAP_PROP_FPS)</span><br><span class="line">            <span class="keyword">if</span> fps &lt;= <span class="number">0.0</span>:</span><br><span class="line">                <span class="comment"># The capture's FPS is unknown so use an estimate.</span></span><br><span class="line">                <span class="keyword">if</span> self._framesElapsed &lt; <span class="number">20</span>:</span><br><span class="line">                    <span class="comment"># Wait until more frames elapse so that the</span></span><br><span class="line">                    <span class="comment"># estimate is more stable.</span></span><br><span class="line">                    <span class="keyword">return</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    fps = self._fpsEstimate</span><br><span class="line">            size = (int(self._capture.get(</span><br><span class="line">                        cv2.CAP_PROP_FRAME_WIDTH)),</span><br><span class="line">                    int(self._capture.get(</span><br><span class="line">                        cv2.CAP_PROP_FRAME_HEIGHT)))</span><br><span class="line">            self._videoWriter = cv2.VideoWriter(</span><br><span class="line">                self._videoFilename, self._videoEncoding,</span><br><span class="line">                fps, size)</span><br><span class="line">        </span><br><span class="line">        self._videoWriter.write(self._frame)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WindowManager</span><span class="params">(object)</span>:</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, windowName, keypressCallback = None)</span>:</span></span><br><span class="line">        self.keypressCallback = keypressCallback</span><br><span class="line">        </span><br><span class="line">        self._windowName = windowName</span><br><span class="line">        self._isWindowCreated = <span class="keyword">False</span></span><br><span class="line">    </span><br><span class="line"><span class="meta">    @property</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isWindowCreated</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self._isWindowCreated</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">createWindow</span><span class="params">(self)</span>:</span></span><br><span class="line">        cv2.namedWindow(self._windowName)</span><br><span class="line">        self._isWindowCreated = <span class="keyword">True</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">show</span><span class="params">(self, frame)</span>:</span></span><br><span class="line">        cv2.imshow(self._windowName, frame)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">destroyWindow</span><span class="params">(self)</span>:</span></span><br><span class="line">        cv2.destroyWindow(self._windowName)</span><br><span class="line">        self._isWindowCreated = <span class="keyword">False</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">processEvents</span><span class="params">(self)</span>:</span></span><br><span class="line">        keycode = cv2.waitKey(<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">if</span> self.keypressCallback <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span> <span class="keyword">and</span> keycode != <span class="number">-1</span>:</span><br><span class="line">            <span class="comment"># Discard any non-ASCII info encoded by GTK.</span></span><br><span class="line">            keycode &amp;= <span class="number">0xFF</span></span><br><span class="line">            self.keypressCallback(keycode)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>新建Cameo.py文件:</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">from</span> managers <span class="keyword">import</span> WindowManager, CaptureManager</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cameo</span><span class="params">(object)</span>:</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self._windowManager = WindowManager(<span class="string">'Cameo'</span>,</span><br><span class="line">                                            self.onKeypress)</span><br><span class="line">        self._captureManager = CaptureManager(</span><br><span class="line">            cv2.VideoCapture(<span class="number">0</span>), self._windowManager, <span class="keyword">True</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""Run the main loop."""</span></span><br><span class="line">        self._windowManager.createWindow()</span><br><span class="line">        <span class="keyword">while</span> self._windowManager.isWindowCreated:</span><br><span class="line">            self._captureManager.enterFrame()</span><br><span class="line">            frame = self._captureManager.frame</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> frame <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>:</span><br><span class="line">                <span class="keyword">pass</span></span><br><span class="line">            </span><br><span class="line">            self._captureManager.exitFrame()</span><br><span class="line">            self._windowManager.processEvents()</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">onKeypress</span><span class="params">(self, keycode)</span>:</span></span><br><span class="line">        <span class="string">"""Handle a keypress.</span><br><span class="line">        </span><br><span class="line">        space  -&gt; Take a screenshot.</span><br><span class="line">        tab    -&gt; Start/stop recording a screencast.</span><br><span class="line">        escape -&gt; Quit.</span><br><span class="line">        </span><br><span class="line">        """</span></span><br><span class="line">        <span class="keyword">if</span> keycode == <span class="number">32</span>: <span class="comment"># space</span></span><br><span class="line">            self._captureManager.writeImage(<span class="string">'screenshot.png'</span>)</span><br><span class="line">        <span class="keyword">elif</span> keycode == <span class="number">9</span>: <span class="comment"># tab</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> self._captureManager.isWritingVideo:</span><br><span class="line">                self._captureManager.startWritingVideo(</span><br><span class="line">                    <span class="string">'screencast.avi'</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                self._captureManager.stopWritingVideo()</span><br><span class="line">        <span class="keyword">elif</span> keycode == <span class="number">27</span>: <span class="comment"># escape</span></span><br><span class="line">            self._windowManager.destroyWindow()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__==<span class="string">"__main__"</span>:</span><br><span class="line">    Cameo().run()</span><br></pre></td></tr></table></figure>
+      
+    </div>
+	<div align="center">
+  
+    <div class="copyright">
+    <p><span>
+    <b>本文地址：</b><a href="/opencvCameo程序基础建立.html" title="opencvCameo程序基础建立">http://whykifan.tk/opencvCameo程序基础建立.html</a><br /><b>转载请注明出处，谢谢！</b>
+    </span></p>
+    </div>
+  
+	</div>
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>您的支持是我不断创作的动力！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://7xvek8.com1.z0.glb.clouddn.com/wechatpay.jpg" alt="whykifan WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="http://7xvek8.com1.z0.glb.clouddn.com/alipay.jpg" alt="whykifan Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/opencv/" rel="tag">#opencv</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Alertdialog的简单使用.html" rel="next" title="Alertdialog的简单使用">
+                <i class="fa fa-chevron-left"></i> Alertdialog的简单使用
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="opencvCameo程序基础建立.html"
+           data-title="opencvCameo程序基础建立" data-url="http://whykifan.tk/opencvCameo程序基础建立.html">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="whykifan" />
+          <p class="site-author-name" itemprop="name">whykifan</p>
+          <p class="site-description motion-element" itemprop="description">You bet whole life happiness on me How could I let you lose</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/kissmise" target="_blank" rel="external nofollow">GitHub</a>
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/kisswhy" target="_blank" rel="external nofollow">知乎</a>
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#opencvCameo程序的基础建立"><span class="nav-number">1.</span> <span class="nav-text">opencvCameo程序的基础建立</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">whykifan</span>
+</div>
+
+
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+  |  
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?a8b67a2dc060a093fefc27cdae9009fa";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https'){
+   bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else{
+  bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+  |  本站总点击 <span id="busuanzi_value_site_pv"></span> 次
+  |  您是第 <span id="busuanzi_value_site_uv"></span> 位访客
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+ |  <span><a href="/sitemap.xml">Google网站地图</a></span>
+ |  <span><a href="/baidusitemap.xml">百度网站地图
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"whykifan"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+
+  
+  
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+  <!-- 小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+<script type="text/javascript" src="/js/src/particle.js"></script>
+</body>
+
+</html>
