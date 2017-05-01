@@ -108,16 +108,24 @@
 
 
 
-<meta name="description" content="You bet whole life happiness on me How could I let you lose">
+<meta name="description" content="k近邻（K-Nearest Neighbour）算法概念:
+
+简单理解：&amp;gt;1-　上图中的对象可以分成两组，蓝色方块和红色三角。每一组也可以称为一个类。我们可以把所有的这些对象看成是一个城镇中房子，而所有的房子分别属于蓝色和红色家族，而这个城镇就是所谓的特征空间。（你可以把一个特征空间看成是所有点的投影所在的空间。例如在一个 2D 的坐标空间中，每个数据都两个特征 x 坐标和 y 坐标，你可以">
 <meta property="og:type" content="article">
 <meta property="og:title" content="KNN算法">
 <meta property="og:url" content="http://whykifan.tk/KNN算法.html">
 <meta property="og:site_name" content="whykifan的博客">
-<meta property="og:description" content="You bet whole life happiness on me How could I let you lose">
-<meta property="og:updated_time" content="2017-04-18T14:32:08.013Z">
+<meta property="og:description" content="k近邻（K-Nearest Neighbour）算法概念:
+
+简单理解：&amp;gt;1-　上图中的对象可以分成两组，蓝色方块和红色三角。每一组也可以称为一个类。我们可以把所有的这些对象看成是一个城镇中房子，而所有的房子分别属于蓝色和红色家族，而这个城镇就是所谓的特征空间。（你可以把一个特征空间看成是所有点的投影所在的空间。例如在一个 2D 的坐标空间中，每个数据都两个特征 x 坐标和 y 坐标，你可以">
+<meta property="og:image" content="http://i.imgur.com/KuPx94H.png">
+<meta property="og:updated_time" content="2017-04-20T14:14:02.548Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="KNN算法">
-<meta name="twitter:description" content="You bet whole life happiness on me How could I let you lose">
+<meta name="twitter:description" content="k近邻（K-Nearest Neighbour）算法概念:
+
+简单理解：&amp;gt;1-　上图中的对象可以分成两组，蓝色方块和红色三角。每一组也可以称为一个类。我们可以把所有的这些对象看成是一个城镇中房子，而所有的房子分别属于蓝色和红色家族，而这个城镇就是所谓的特征空间。（你可以把一个特征空间看成是所有点的投影所在的空间。例如在一个 2D 的坐标空间中，每个数据都两个特征 x 坐标和 y 坐标，你可以">
+<meta name="twitter:image" content="http://i.imgur.com/KuPx94H.png">
 
 
 
@@ -568,7 +576,15 @@
       
 
       
-        
+        <p><strong>k近邻（K-Nearest Neighbour）算法概念:</strong></p>
+<p><img src="http://i.imgur.com/KuPx94H.png" alt="opencv_knn"></p>
+<p><strong>简单理解：</strong><br>&gt;<br><strong>1</strong>-　上图中的对象可以分成两组，蓝色方块和红色三角。每一组也可以称为一<br>个类。我们可以把所有的这些对象看成是一个城镇中房子，而所有的房子分别<br>属于蓝色和红色家族，而这个城镇就是所谓的特征空间。（你可以把一个特征空<br>间看成是所有点的投影所在的空间。例如在一个 2D 的坐标空间中，每个数据<br>都两个特征 x 坐标和 y 坐标，你可以在 2D 坐标空间中表示这些数据。如果每<br>个数据都有 3 个特征呢，我们就需要一个 3D 空间。 N 个特征就需要 N 维空<br>间，这个 N 维空间就是特征空间。在上图中，我们可以认为是具有两个特征色<br>2D 空间）。</p>
+<blockquote>
+<p><strong>2</strong>-　现在城镇中来了一个新人，他的新房子用绿色圆盘表示。我们要根据他房<br>子的位置把他归为蓝色家族或红色家族。我们把这过程成为分类。我们应该怎<br>么做呢？因为我们正在学习看 kNN，那我们就使用一下这个算法吧。</p>
+<p>一个方法就是查看他最近的邻居属于那个家族，从图像中我们知道最近的<br>是红色三角家族。所以他被分到红色家族。这种方法被称为简单近邻，因为分<br>类仅仅决定与它最近的邻居。但是这里还有一个问题。红色三角可能是最近的，但如果他周围还有很多<br>蓝色方块怎么办呢？此时蓝色方块对局部的影响应该大于红色三角。所以仅仅<br>检测最近的一个邻居是不足的。所以我们检测 k 个最近邻居。谁在这 k 个邻<br>居中占据多数，那新的成员就属于谁那一类。如果 k 等于 3，也就是在上面图<br>像中检测 3 个最近的邻居。他有两个红的和一个蓝的邻居，所以他还是属于红<br>色家族。但是如果 k 等于 7 呢？他有 5 个蓝色和 2 个红色邻居，现在他就会<br>被分到蓝色家族了。 k 的取值对结果影响非常大。更有趣的是，如果 k 等于 4<br>呢？两个红两个蓝。<strong>这是一个死结。所以 k 的取值最好为奇数</strong>。这中根据 k 个<br>最近邻居进行分类的方法被称为 kNN。</p>
+<p><strong>3</strong>-　在 kNN 中我们考虑了 k 个最近邻居，但是我们给了这些邻居相等的权<br>重，这样做公平吗？以 k 等于 4 为例，我们说她是一个死结。但是两个红色三<br>角比两个蓝色方块距离新成员更近一些。所以他更应该被分为红色家族。那用<br>数学应该如何表示呢？我们要根据每个房子与新房子的距离对每个房子赋予不<br>同的权重。距离近的具有更高的权重，距离远的权重更低。然后我们根据两个<br>家族的权重和来判断新房子的归属，谁的权重大就属于谁。这被称为修改过的<br>kNN。</p>
+</blockquote>
+
       
     </div>
 	<div align="center">
@@ -634,6 +650,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/网络爬虫爬取妹子图.html" rel="prev" title="网络爬虫爬取妹子图">
+                网络爬虫爬取妹子图 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -705,7 +725,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-count">18</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
