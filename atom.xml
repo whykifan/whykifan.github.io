@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://whykifan.tk/"/>
-  <updated>2017-05-01T12:41:09.120Z</updated>
+  <updated>2017-05-01T12:58:55.672Z</updated>
   <id>http://whykifan.tk/</id>
   
   <author>
@@ -20,21 +20,20 @@
     <link href="http://whykifan.tk/%E9%A2%9C%E8%89%B2%E7%A9%BA%E9%97%B4.html"/>
     <id>http://whykifan.tk/颜色空间.html</id>
     <published>2017-05-01T09:26:45.000Z</published>
-    <updated>2017-05-01T12:41:09.120Z</updated>
+    <updated>2017-05-01T12:58:55.672Z</updated>
     
     <content type="html">&lt;p&gt;OpenCV中有超过150种颜色空间转换方法。但是使用最为广泛的空间只有BGR、GRAY、HSV三种，下面介绍下这几种空间：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;HSV空间&lt;/strong&gt;:&lt;br&gt;HSV(Hue, Saturation, Value)是根据颜色的直观特性由A. R. Smith在1978年创建的一种颜色空间, 也称六角锥体模型(Hexcone Model)。&lt;br&gt;这个模型中颜色的参数分别是：色调（H），饱和度（S），明度（V）。在opencv中HSV的三个分量：色调（H）范围0-&amp;gt;179，饱和度（S）范围0-&amp;gt;255，明度（V）范围0-&amp;gt;255&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;https://imgsa.baidu.com/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=c70e69618a13632701e0ca61f0e6cb89/8d5494eef01f3a29fb2420739925bc315d607c9b.jpg&quot; alt=&quot;hsv&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://imgsa.baidu.com/baike/c0%3Dbaike72%2C5%2C5%2C72%2C24/sign=265c97b7dd54564ef168ec6bd2b7f7e7/b151f8198618367ab5bcd4792e738bd4b31ce559.jpg&quot; alt=&quot;hsv&quot;&gt;&lt;/p&gt;
-&lt;h1 id=&quot;色调H&quot;&gt;&lt;a href=&quot;#色调H&quot; class=&quot;headerlink&quot; title=&quot;色调H&quot;&gt;&lt;/a&gt;色调H&lt;/h1&gt;&lt;p&gt;用角度度量，取值范围为0°～360°，从红色开始按逆时针方向计算，红色为0°，绿色为120°,蓝色为240°。它们的补色是：黄色为60°，青色为180°,品红为300°；&lt;/p&gt;
-&lt;h1 id=&quot;饱和度S&quot;&gt;&lt;a href=&quot;#饱和度S&quot; class=&quot;headerlink&quot; title=&quot;饱和度S&quot;&gt;&lt;/a&gt;饱和度S&lt;/h1&gt;&lt;p&gt;饱和度S表示颜色接近光谱色的程度。一种颜色，可以看成是某种光谱色与白色混合的结果。其中光谱色所占的比例愈大，颜色接近光谱色的程度就愈高，颜色的饱和度也就愈高。饱和度高，颜色则深而艳。光谱色的白光成分为0，饱和度达到最高。通常取值范围为0%～100%，值越大，颜色越饱和。&lt;/p&gt;
-&lt;h1 id=&quot;明度V&quot;&gt;&lt;a href=&quot;#明度V&quot; class=&quot;headerlink&quot; title=&quot;明度V&quot;&gt;&lt;/a&gt;明度V&lt;/h1&gt;&lt;p&gt;明度表示颜色明亮的程度，对于光源色，明度值与发光体的光亮度有关；对于物体色，此值和物体的透射比或反射比有关。通常取值范围为0%（黑）到100%（白）。&lt;br&gt;RGB和CMY颜色模型都是面向硬件的，而HSV（Hue Saturation Value）颜色模型是面向用户的。&lt;br&gt;HSV模型的三维表示从RGB立方体演化而来。设想从RGB沿立方体对角线的白色顶点向黑色顶点观察，就可以看到立方体的六边形外形。六边形边界表示色彩，水平轴表示纯度，明度沿垂直轴测量。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://hi.csdn.net/attachment/201103/21/0_1300687239NIZ4.gif&quot; alt=&quot;hsv&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;色调H&quot;&gt;&lt;a href=&quot;#色调H&quot; class=&quot;headerlink&quot; title=&quot;色调H&quot;&gt;&lt;/a&gt;色调H&lt;/h1&gt;&lt;p&gt;用角度度量，取值范围为0°～360°，从红色开始按逆时针方向计算，红色为0°，绿色为120°,蓝色为240°。它们的补色是：黄色为60°，青色为180°,品红为300°；&lt;br&gt;&lt;strong&gt;确切定义为颜色等效光谱峰值的位置，不过要知道的是不是所有色相都在光谱上，光谱红色端和紫色端之间还用洋红色段，所以色相用 2 段连接并补充紫色段的色相环表示&lt;/strong&gt;。&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/3060942-348409cd900c46b3?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;饱和度S&quot;&gt;&lt;a href=&quot;#饱和度S&quot; class=&quot;headerlink&quot; title=&quot;饱和度S&quot;&gt;&lt;/a&gt;饱和度S&lt;/h1&gt;&lt;p&gt;饱和度S表示颜色接近光谱色的程度。一种颜色，可以看成是某种光谱色与白色混合的结果。其中光谱色所占的比例愈大，颜色接近光谱色的程度就愈高，颜色的饱和度也就愈高。饱和度高，颜色则深而艳。光谱色的白光成分为0，饱和度达到最高。通常取值范围为0%～100%，值越大，颜色越饱和。&lt;br&gt;&lt;strong&gt;确切定义为颜色等效光谱分布集中于波峰（色相）的程度，越集中含其颜色越少，饱和度越高。&lt;/strong&gt;&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/3060942-bc3d0a993b115e02?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;明度V&quot;&gt;&lt;a href=&quot;#明度V&quot; class=&quot;headerlink&quot; title=&quot;明度V&quot;&gt;&lt;/a&gt;明度V&lt;/h1&gt;&lt;p&gt;明度表示颜色明亮的程度，对于光源色，明度值与发光体的光亮度有关；对于物体色，此值和物体的透射比或反射比有关。通常取值范围为0%（黑）到100%（白）。&lt;br&gt;RGB和CMY颜色模型都是面向硬件的，而HSV（Hue Saturation Value）颜色模型是面向用户的。&lt;br&gt;HSV模型的三维表示从RGB立方体演化而来。设想从RGB沿立方体对角线的白色顶点向黑色顶点观察，就可以看到立方体的六边形外形。六边形边界表示色彩，水平轴表示纯度，明度沿垂直轴测量。&lt;br&gt;&lt;strong&gt;虽然概括来说就只是颜色的明亮程度，但是明亮是指光的强度，还是人对光的感受？范围是从黑到白还是从黑到颜色能维持最大饱和度的亮度？在不同的色彩体系、标准、翻译下会有不同的意义。&lt;/strong&gt;&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/3060942-6109d1c963c52dbb?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;RGB颜色空间&lt;/strong&gt;:RGB色彩模式是工业界的一种颜色标准，是通过对红(R)、绿(G)、蓝(B)三个颜色通道的变化以及它们相互之间的叠加来得到各式各样的颜色的，RGB即是代表红、绿、蓝三个通道的颜色，这个标准几乎包括了人类视力所能感知的所有颜色，是目前运用最广的颜色系统之一。但在opencv中使用的顺序通常为BGR.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;https://imgsa.baidu.com/baike/c0%3Dbaike150%2C5%2C5%2C150%2C50/sign=2dd5b70cbe096b63951456026d5aec21/0dd7912397dda1448aa71c91b2b7d0a20cf48662.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt; RGB的所谓“多少”就是指亮度，并使用整数来表示。通常情况下，RGB各有256级亮度，用数字表示为从0、1、2…直到255。注意虽然数字最高是255，但0也是数值之一，因此共256级&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://img.blog.csdn.net/20140310091844296?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2Vpd2VpZ2ZrZA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center&quot; alt=&quot;&quot;&gt;&lt;br&gt; RGB的所谓“多少”就是指亮度，并使用整数来表示。通常情况下，RGB各有256级亮度，用数字表示为从0、1、2…直到255。注意虽然数字最高是255，但0也是数值之一，因此共256级&lt;/p&gt;
 &lt;h1 id=&quot;RGB555&quot;&gt;&lt;a href=&quot;#RGB555&quot; class=&quot;headerlink&quot; title=&quot;RGB555&quot;&gt;&lt;/a&gt;RGB555&lt;/h1&gt;&lt;p&gt;RGB555是另一种16位的RGB格式，RGB分量都用5位表示（剩下的1位不用）。使用一个字读出一个像素后，这个字的各个位意义如下：&lt;br&gt;高字节 低字节&lt;br&gt;X R R R R R G G G G G B B B B B （X表示不用，可以忽略）&lt;/p&gt;
 &lt;h1 id=&quot;RGB565&quot;&gt;&lt;a href=&quot;#RGB565&quot; class=&quot;headerlink&quot; title=&quot;RGB565&quot;&gt;&lt;/a&gt;RGB565&lt;/h1&gt;&lt;p&gt;RGB565使用16位表示一个像素，这16位中的5位用于R，6位用于G，5位用于B。程序中通常使用一个字（WORD，一个字等于两个字节）来操作一个像素。当读出一个像素后，这个字的各个位意义如下：&lt;br&gt;高字节 低字节&lt;br&gt;R R R R R G G G G G G B B B B B&lt;/p&gt;
 &lt;h1 id=&quot;RGB24&quot;&gt;&lt;a href=&quot;#RGB24&quot; class=&quot;headerlink&quot; title=&quot;RGB24&quot;&gt;&lt;/a&gt;RGB24&lt;/h1&gt;&lt;p&gt;RGB24使用24位来表示一个像素，RGB分量都用8位表示，取值范围为0-255。注意在内存中RGB各分量的排列顺序为：BGR BGR BGR… 常用书写格式：0xRRGGBB&lt;/p&gt;
