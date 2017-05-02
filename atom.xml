@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://whykifan.tk/"/>
-  <updated>2017-05-01T12:58:55.672Z</updated>
+  <updated>2017-05-02T14:51:57.717Z</updated>
   <id>http://whykifan.tk/</id>
   
   <author>
@@ -14,6 +14,57 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>opencv_threshold</title>
+    <link href="http://whykifan.tk/opencv-threshold.html"/>
+    <id>http://whykifan.tk/opencv-threshold.html</id>
+    <published>2017-05-02T14:20:13.000Z</published>
+    <updated>2017-05-02T14:51:57.717Z</updated>
+    
+    <content type="html">&lt;p&gt;opencv当中经常使用的阈值过滤函数有两个:&lt;br&gt;&lt;strong&gt;cv2.threshold，cv2.adaptiveThreshold&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;阈值的过滤方法:&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;如果像素值大于阈值，则分配一个值（可以是白色），否则分配另一个值（可以是黑色）。所使用的函数是cv2.threshold。第一个参数是源图像，它应该是灰度图像。第二个参数是用于对像素值进行分类的阈值。第三个参数是maxVal，它表示如果像素值大于（有时小于）阈值时给出的值。OpenCV提供不同风格的阈值，由功能的第四个参数决定。不同的类型是：&lt;/p&gt;
+&lt;p&gt;cv2.THRESH_BINARY&lt;br&gt;cv2.THRESH_BINARY_INV&lt;br&gt;cv2.THRESH_TRUNC&lt;br&gt;cv2.THRESH_TOZERO&lt;br&gt;cv2.THRESH_TOZERO_INV&lt;/p&gt;
+&lt;p&gt;他有连个返回参数：&lt;strong&gt;第一个为 retVal(在文章最后介绍)。第二个就是阈值化之后的结果图像了&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&quot;opencv中不同的五种阈值类型：&quot;&gt;&lt;a href=&quot;#opencv中不同的五种阈值类型：&quot; class=&quot;headerlink&quot; title=&quot;opencv中不同的五种阈值类型：&quot;&gt;&lt;/a&gt;opencv中不同的五种阈值类型：&lt;/h2&gt;&lt;p&gt;1.二进制阈值化（cv2.THRESH_BINARY）&lt;br&gt;&lt;img src=&quot;http://i.imgur.com/An96zuY.png&quot; alt=&quot;二进制二值化&quot;&gt;&lt;br&gt;2.反二进制阈值化（cv2.THRESH_BINARY_INV）&lt;br&gt;&lt;img src=&quot;http://i.imgur.com/jGfOBf7.png&quot; alt=&quot;反二进制二值化&quot;&gt;&lt;br&gt;3.截断阈值化（cv2.THRESH_TRUNC）&lt;br&gt;&lt;img src=&quot;http://i.imgur.com/eC5l7BI.png&quot; alt=&quot;截断&quot;&gt;&lt;br&gt;4.阈值化为0（cv2.THRESH_TOZERO）&lt;br&gt;&lt;img src=&quot;http://i.imgur.com/I4ZBzd8.png&quot; alt=&quot;截断&quot;&gt;&lt;br&gt;5.反阈值化为0（cv2.THRESH_TOZERO_INV）&lt;br&gt;&lt;img src=&quot;http://i.imgur.com/x9DqgZw.png&quot; alt=&quot;fanyuzhi&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;自适应阈值：&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;使用全局值作为阈值，但在不同区域的图像具有不同的照明条件的所有条件下可能并不好。在这种情况下，我们去适应阈值。在此，该算法计算图像的小区域的阈值。所以我们得到不同的相同图像区域的不同的阈值，它给我们更好的结果，对于具有不同照明的图像    &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;cv2.adaptiveThreshold&lt;br&gt;&lt;strong&gt;它有三个’特殊’输入参数，只有一个输出参数&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;1.Adaptive Method- 指定计算阈值的方法&lt;br&gt;cv2.ADAPTIVE_THRESH_MEAN_C：阈值是邻域的平均值。&lt;br&gt;cv2.ADAPTIVE_THRESH_GAUSSIAN_C：阈值是权重是高斯窗口的邻域值的加权和&lt;/p&gt;
+&lt;p&gt;2.Block Size - 邻域大小（用来计算阈值的区域大小）&lt;/p&gt;
+&lt;p&gt;3.C - 这就是是一个常数，阈值就等于的平均值或者加权平均值减去这个常数。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Otsu’s 二值化:&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在第一部分中我们提到过 retVal，当我们使用 Otsu 二值化时会用到它.&lt;/p&gt;
+&lt;p&gt;在使用全局阈值时，我们就是随便给了一个数来做阈值，那我们怎么知道我们选取的这个数的好坏呢？答案就是不停的尝试。如果是一副双峰图像（简单来说双峰图像是指图像直方图中存在两个峰）呢？我们岂不是应该在两个峰之间的峰谷选一个值作为阈值？这就是 Otsu 二值化要做的。简单来说就是对一副双峰图像自动根据其直方图计算出一个阈值。（对于非双峰图像，这种方法得到的结果可能会不理想）。&lt;br&gt;这里用到到的函数还是 cv2.threshold()，但是需要多传入一个参数（flag）：cv2.THRESH_OTSU。这时要把阈值设为 0。然后算法会找到最优阈值，这个最优阈值就是返回值 retVal。如果不使用 Otsu 二值化，返回的retVal 值与设定的阈值相等。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;范例程序：&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#coding=utf-8&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#常用阈值过滤函数cv2.threshold，cv2.adaptiveThreshold&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; cv2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; numpy &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt; np&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; matplotlib &lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; pyplot &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt; plt&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;img = cv2.imread(&lt;span class=&quot;string&quot;&gt;&#39;dave.jpg&#39;&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 中值滤波&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;img = cv2.medianBlur(img,&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#返回的ret为最优阈&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ret,th1 = cv2.threshold(img,&lt;span class=&quot;number&quot;&gt;127&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;255&lt;/span&gt;,cv2.THRESH_BINARY)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#11 为 Block size, 2 为 C 值&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;th2 = cv2.adaptiveThreshold(img,&lt;span class=&quot;number&quot;&gt;255&lt;/span&gt;,cv2.ADAPTIVE_THRESH_MEAN_C,\&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cv2.THRESH_BINARY,&lt;span class=&quot;number&quot;&gt;11&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;th3 = cv2.adaptiveThreshold(img,&lt;span class=&quot;number&quot;&gt;255&lt;/span&gt;,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,\&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cv2.THRESH_BINARY,&lt;span class=&quot;number&quot;&gt;11&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;titles = [&lt;span class=&quot;string&quot;&gt;&#39;Original Image&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;Global Thresholding (v = 127)&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;&#39;Adaptive Mean Thresholding&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;Adaptive Gaussian Thresholding&#39;&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;images = [img, th1, th2, th3]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; i &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; range(&lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	plt.subplot(&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;,i+&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;),plt.imshow(images[i],&lt;span class=&quot;string&quot;&gt;&#39;gray&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	plt.title(titles[i])&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	plt.xticks([]),plt.yticks([])&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;plt.show()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;opencv当中经常使用的阈值过滤函数有两个:&lt;br&gt;&lt;strong&gt;cv2.threshold，cv2.adaptiveThreshold&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;阈值的过滤方法:&lt;/strong&gt;&lt;/p&gt;
+&lt;/block
+    
+    </summary>
+    
+      <category term="opencv" scheme="http://whykifan.tk/categories/opencv/"/>
+    
+    
+      <category term="opencv" scheme="http://whykifan.tk/tags/opencv/"/>
+    
+  </entry>
   
   <entry>
     <title>颜色空间</title>
