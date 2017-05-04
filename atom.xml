@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://whykifan.tk/"/>
-  <updated>2017-05-02T14:51:57.717Z</updated>
+  <updated>2017-05-04T14:55:18.239Z</updated>
   <id>http://whykifan.tk/</id>
   
   <author>
@@ -14,6 +14,40 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>图像梯度</title>
+    <link href="http://whykifan.tk/%E5%9B%BE%E5%83%8F%E6%A2%AF%E5%BA%A6.html"/>
+    <id>http://whykifan.tk/图像梯度.html</id>
+    <published>2017-05-04T14:21:09.000Z</published>
+    <updated>2017-05-04T14:55:18.239Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;梯度简单来说就是求导。&lt;br&gt;OpenCV 提供了三种不同的梯度滤波器，或者说高通滤波器： Sobel，Scharr 和 Laplacian。我们会意义介绍他们。Sobel， Scharr 其实就是求一阶或二阶导数。 Scharr 是对 Sobel（使用&lt;br&gt;小的卷积核求解求解梯度角度时）的优化。Laplacian 是求二阶导数。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;常用的几个梯度函数：&lt;br&gt; &lt;strong&gt;cv2.Sobel()， cv2.Schar()， cv2.Laplacian()&lt;/strong&gt;&lt;/p&gt;
+&lt;h1 id=&quot;1、Sobel和schar&quot;&gt;&lt;a href=&quot;#1、Sobel和schar&quot; class=&quot;headerlink&quot; title=&quot;1、Sobel和schar&quot;&gt;&lt;/a&gt;1、Sobel和schar&lt;/h1&gt;&lt;p&gt;Sobel 算子是高斯平滑与微分操作的结合体，所以它的抗噪声能力很好。你可以设定求导的方（xorder 或 yorder）。还可以设定使用的卷积核的大小（ksize）。如果 ksize=-1，会使用 3x3 的 Scharr 滤波器，它的的效果要比 3x3 的 Sobel 滤波器好（而且速度相同，所以在使用 3x3 滤波器时应该尽&lt;br&gt;量使用 Scharr 滤波器）。 3x3 的 Scharr 滤波器卷积核如下：&lt;br&gt;&lt;img src=&quot;http://i.imgur.com/TNlGBTY.png&quot; alt=&quot;高斯滤波&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;2、Laplacian算子&quot;&gt;&lt;a href=&quot;#2、Laplacian算子&quot; class=&quot;headerlink&quot; title=&quot;2、Laplacian算子&quot;&gt;&lt;/a&gt;2、Laplacian算子&lt;/h1&gt;&lt;p&gt;拉普拉斯算子可以使用二阶导数的形式定义，可假设其离散实现类似于二阶 Sobel 导数，事实上， OpenCV 在计算拉普拉斯算子时直接调用 Sobel 算子。计算公式如下：&lt;br&gt;&lt;img src=&quot;http://i.imgur.com/xHIqbIq.png&quot; alt=&quot;拉普拉斯&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;3、范例程序&quot;&gt;&lt;a href=&quot;#3、范例程序&quot; class=&quot;headerlink&quot; title=&quot;3、范例程序&quot;&gt;&lt;/a&gt;3、范例程序&lt;/h1&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; cv2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; numpy &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt; np&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; matplotlib &lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; pyplot &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt; plt&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;img=cv2.imread(&lt;span class=&quot;string&quot;&gt;&#39;pic.png&#39;&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#cv2.CV_64F 输出图像的深度（数据类型），可以使用-1, 与原图像保持一致 np.uint8&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;laplacian=cv2.Laplacian(img,cv2.CV_64F)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 参数 1,0 为只在 x 方向求一阶导数，最大可以求 2 阶导数。&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sobelx=cv2.Sobel(img,cv2.CV_64F,&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;,ksize=&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 参数 0,1 为只在 y 方向求一阶导数，最大可以求 2 阶导数。&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sobely=cv2.Sobel(img,cv2.CV_64F,&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;,ksize=&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;plt.subplot(&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;),plt.imshow(img,cmap = &lt;span class=&quot;string&quot;&gt;&#39;gray&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;plt.title(&lt;span class=&quot;string&quot;&gt;&#39;Original&#39;&lt;/span&gt;), plt.xticks([]), plt.yticks([])&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;plt.subplot(&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;),plt.imshow(laplacian,cmap = &lt;span class=&quot;string&quot;&gt;&#39;gray&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;plt.title(&lt;span class=&quot;string&quot;&gt;&#39;Laplacian&#39;&lt;/span&gt;), plt.xticks([]), plt.yticks([])&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;plt.subplot(&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;),plt.imshow(sobelx,cmap = &lt;span class=&quot;string&quot;&gt;&#39;gray&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;plt.title(&lt;span class=&quot;string&quot;&gt;&#39;Sobel X&#39;&lt;/span&gt;), plt.xticks([]), plt.yticks([])&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;plt.subplot(&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;),plt.imshow(sobely,cmap = &lt;span class=&quot;string&quot;&gt;&#39;gray&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;plt.title(&lt;span class=&quot;string&quot;&gt;&#39;Sobel Y&#39;&lt;/span&gt;), plt.xticks([]), plt.yticks([])&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;plt.show()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;效果&lt;br&gt;&lt;img src=&quot;http://i.imgur.com/3vu7bI1.png&quot; alt=&quot;效果&quot;&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在查看上面这个例子的注释时不知道你有没有注意到：当我们可以通过参数 -1 来设定输出图像的深度（数据类型）与原图像保持一致，但是我们在代码中使用的却是 cv2.CV_64F。这是为什么呢？想象一下一个从黑到白的边界的导数是整数，而一个从白到黑的边界点导数却是负数。如果原图像的深度是np.int8 时，所有的负值都会被截断变成 0，换句话说就是把把边界丢失掉。所以如果这两种边界你都想检测到，最好的的办法就是将输出的数据类型设置的更高，比如 cv2.CV_16S， cv2.CV_64F 等。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;梯度简单来说就是求导。&lt;br&gt;OpenCV 提供了三种不同的梯度滤波器，或者说高通滤波器： Sobel，Scharr 和 Laplacian。我们会意义介绍他们。Sobel， Scharr 其实就是求一阶或二阶导数。 Scharr 是对 Sobel
+    
+    </summary>
+    
+      <category term="opencv" scheme="http://whykifan.tk/categories/opencv/"/>
+    
+    
+      <category term="opencv" scheme="http://whykifan.tk/tags/opencv/"/>
+    
+  </entry>
   
   <entry>
     <title>opencv_threshold</title>
@@ -1122,31 +1156,6 @@
     
     
       <category term="定时器" scheme="http://whykifan.tk/tags/%E5%AE%9A%E6%97%B6%E5%99%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>毕业</title>
-    <link href="http://whykifan.tk/%E6%AF%95%E4%B8%9A.html"/>
-    <id>http://whykifan.tk/毕业.html</id>
-    <published>2016-06-11T23:04:39.000Z</published>
-    <updated>2016-06-29T01:57:10.028Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;上天给人一份困难时，同时也给人一份智慧。转眼间大学四年就要结束，真心祝愿所有毕业的学长学姐们在未来的路上越走越好。&quot;&gt;&lt;a href=&quot;#上天给人一份困难时，同时也给人一份智慧。转眼间大学四年就要结束，真心祝愿所有毕业的学长学姐们在未来的路上越走越好。&quot; class=&quot;headerlink&quot; title=&quot;上天给人一份困难时，同时也给人一份智慧。转眼间大学四年就要结束，真心祝愿所有毕业的学长学姐们在未来的路上越走越好。&quot;&gt;&lt;/a&gt;上天给人一份困难时，同时也给人一份智慧。转眼间大学四年就要结束，真心祝愿所有毕业的学长学姐们在未来的路上越走越好。&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;附上学校金鱼照一张O(∩_∩)O：&lt;br&gt;  &lt;img src=&quot;http://7xvek8.com1.z0.glb.clouddn.com/%E5%AD%A6%E6%A0%A1.jpg&quot; alt=&quot;网络慢，图片刷不出来喽&quot;&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;iframe height=&quot;400&quot; width=&quot;490&quot; src=&quot;http://player.youku.com/embed/XMTI1ODU2MTg0MA==&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;上天给人一份困难时，同时也给人一份智慧。转眼间大学四年就要结束，真心祝愿所有毕业的学长学姐们在未来的路上越走越好。&quot;&gt;&lt;a href=&quot;#上天给人一份困难时，同时也给人一份智慧。转眼间大学四年就要结束，真心祝愿所有毕业的学长学姐们在未来的路上越走越好。&quot; clas
-    
-    </summary>
-    
-      <category term="毕业" scheme="http://whykifan.tk/categories/%E6%AF%95%E4%B8%9A/"/>
-    
-    
-      <category term="毕业" scheme="http://whykifan.tk/tags/%E6%AF%95%E4%B8%9A/"/>
     
   </entry>
   

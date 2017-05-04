@@ -502,8 +502,8 @@
             
               
                 
-                <a class="post-title-link" href="/颜色空间.html" itemprop="url">
-                  颜色空间
+                <a class="post-title-link" href="/opencv-threshold.html" itemprop="url">
+                  opencv_threshold
                 </a>
               
             
@@ -516,19 +516,38 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-05-01T17:26:45+08:00" content="2017-05-01">
-              2017-05-01
+            <time itemprop="dateCreated" datetime="2017-05-02T22:20:13+08:00" content="2017-05-02">
+              2017-05-02
             </time>
           </span>
 			
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/opencv/" itemprop="url" rel="index">
+                    <span itemprop="name">opencv</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/颜色空间.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="颜色空间.html" itemprop="commentsCount"></span>
+                <a href="/opencv-threshold.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="opencv-threshold.html" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -553,13 +572,146 @@
       
         
           
-          OpenCV中有超过150种颜色空间转换方法。但是使用最为广泛的空间只有BGR、GRAY、HSV三种，下面介绍下这几种空间：
+          opencv当中经常使用的阈值过滤函数有两个:cv2.threshold，cv2.adaptiveThreshold
 
-HSV空间:HSV(Hue, Saturation, Value)是根据颜色的直观特性由A. R. Smith在1978年创建的一种颜色空间, 也称六角锥体模型(Hexcone Model)。这个模型中颜色的参数分别是：色调（H），饱和度（S），明度（V）。在opencv
+阈值的过滤方法:
+
+如果像素值大于阈值，则分配一个值（可以是白色），否则分配另一个值（可以是黑色）。所使用的函数是cv2.threshold。第一个参数是源图像，它应该是灰度图像。第二个参数是用于对像素值进行分类的阈值。第三个参数是maxVal，它表示如果像素值大于（有时小于）阈
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/颜色空间.html#more" rel="contents">
+            <a class="btn" href="/opencv-threshold.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+	<div align="center">
+  
+	</div>
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/获取电脑wifi密码.html" itemprop="url">
+                  获取电脑wifi密码
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-19T16:31:29+08:00" content="2016-08-19">
+              2016-08-19
+            </time>
+          </span>
+			
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/电脑技术/" itemprop="url" rel="index">
+                    <span itemprop="name">电脑技术</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/获取电脑wifi密码.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="获取电脑wifi密码.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          　　    有很多人连接了wifi以后，时间一长会忘掉自己的wifi密码，这里有一个通过cmd命令来让电脑给我们列出所有电脑曾经连接过的wifi密码的方法:
+
+1.首先我们通过快捷键ctrl+r打开运行窗口，输入cmd打开命令行窗口.2.复制以下代码并直接直接粘贴回车运行.
+
+代码：1for /f &quot;skip=9 tokens=1,2 delims=:&quot; %i in (&apo
+          ...
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/获取电脑wifi密码.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -976,138 +1128,11 @@ HSV空间:HSV(Hue, Saturation, Value)是根据颜色的直观特性由A. R. Smit
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/串口通信.html" itemprop="url">
-                  串口通信
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-22T16:01:01+08:00" content="2016-07-22">
-              2016-07-22
-            </time>
-          </span>
-			
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/单片机/" itemprop="url" rel="index">
-                    <span itemprop="name">单片机</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/串口通信.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="串口通信.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          一.通信的分类：  　　  　　通信按照基本类型可以分为并行通信和串行通信。并行通信的各个数据位同时传送，但占用资源多，成本高；而串行通信的数据位是由低位到高位一位一位发送的。  　　常用的通信从传输方向上可以分为单工通信、半双工通信、全双工通信三类。  　１．单工通信就是指只允许一方向另外一方传送信息，而另一方不能回传信息。比如电视遥控器、收音机广播等，都是单工通信技术。  　２．半双工通信是指
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/串口通信.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-	<div align="center">
-  
-	</div>
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1148,7 +1173,7 @@ HSV空间:HSV(Hue, Saturation, Value)是根据颜色的直观特性由A. R. Smit
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-count">21</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

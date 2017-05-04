@@ -90,7 +90,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="android, html" />
+  <meta name="keywords" content="opencv," />
 
 
 
@@ -108,15 +108,26 @@
 
 
 
-<meta name="description" content="You bet whole life happiness on me How could I let you lose">
-<meta property="og:type" content="website">
-<meta property="og:title" content="whykifan的博客">
-<meta property="og:url" content="http://whykifan.tk/index.html">
+<meta name="description" content="梯度简单来说就是求导。OpenCV 提供了三种不同的梯度滤波器，或者说高通滤波器： Sobel，Scharr 和 Laplacian。我们会意义介绍他们。Sobel， Scharr 其实就是求一阶或二阶导数。 Scharr 是对 Sobel（使用小的卷积核求解求解梯度角度时）的优化。Laplacian 是求二阶导数。
+
+常用的几个梯度函数： cv2.Sobel()， cv2.Schar()， c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="图像梯度">
+<meta property="og:url" content="http://whykifan.tk/图像梯度.html">
 <meta property="og:site_name" content="whykifan的博客">
-<meta property="og:description" content="You bet whole life happiness on me How could I let you lose">
+<meta property="og:description" content="梯度简单来说就是求导。OpenCV 提供了三种不同的梯度滤波器，或者说高通滤波器： Sobel，Scharr 和 Laplacian。我们会意义介绍他们。Sobel， Scharr 其实就是求一阶或二阶导数。 Scharr 是对 Sobel（使用小的卷积核求解求解梯度角度时）的优化。Laplacian 是求二阶导数。
+
+常用的几个梯度函数： cv2.Sobel()， cv2.Schar()， c">
+<meta property="og:image" content="http://i.imgur.com/TNlGBTY.png">
+<meta property="og:image" content="http://i.imgur.com/xHIqbIq.png">
+<meta property="og:image" content="http://i.imgur.com/3vu7bI1.png">
+<meta property="og:updated_time" content="2017-05-04T14:55:18.239Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="whykifan的博客">
-<meta name="twitter:description" content="You bet whole life happiness on me How could I let you lose">
+<meta name="twitter:title" content="图像梯度">
+<meta name="twitter:description" content="梯度简单来说就是求导。OpenCV 提供了三种不同的梯度滤波器，或者说高通滤波器： Sobel，Scharr 和 Laplacian。我们会意义介绍他们。Sobel， Scharr 其实就是求一阶或二阶导数。 Scharr 是对 Sobel（使用小的卷积核求解求解梯度角度时）的优化。Laplacian 是求二阶导数。
+
+常用的几个梯度函数： cv2.Sobel()， cv2.Schar()， c">
+<meta name="twitter:image" content="http://i.imgur.com/TNlGBTY.png">
 
 
 
@@ -147,9 +158,9 @@
 
 
 
-  <link rel="canonical" href="http://whykifan.tk/"/>
+  <link rel="canonical" href="http://whykifan.tk/图像梯度.html"/>
 
-  <title> whykifan的博客 - You bet whole life happiness on me How could I let you lose </title>
+  <title> 图像梯度 | whykifan的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -180,9 +191,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -479,9 +488,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -501,10 +510,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/图像梯度.html" itemprop="url">
-                  图像梯度
-                </a>
+                图像梯度
               
             
           </h1>
@@ -520,6 +526,8 @@
               2017-05-04
             </time>
           </span>
+			
+			<span id="busuanzi_container_page_pv">  |  热度:<span id="busuanzi_value_page_pv"></span>℃</span>
 			
           
             <span class="post-category" >
@@ -570,550 +578,99 @@
       
 
       
-        
-          
-          
-梯度简单来说就是求导。OpenCV 提供了三种不同的梯度滤波器，或者说高通滤波器： Sobel，Scharr 和 Laplacian。我们会意义介绍他们。Sobel， Scharr 其实就是求一阶或二阶导数。 Scharr 是对 Sobel（使用小的卷积核求解求解梯度角度时）的优化。Laplacian 是求二阶导数。
+        <blockquote>
+<p>梯度简单来说就是求导。<br>OpenCV 提供了三种不同的梯度滤波器，或者说高通滤波器： Sobel，Scharr 和 Laplacian。我们会意义介绍他们。Sobel， Scharr 其实就是求一阶或二阶导数。 Scharr 是对 Sobel（使用<br>小的卷积核求解求解梯度角度时）的优化。Laplacian 是求二阶导数。</p>
+</blockquote>
+<p>常用的几个梯度函数：<br> <strong>cv2.Sobel()， cv2.Schar()， cv2.Laplacian()</strong></p>
+<h1 id="1、Sobel和schar"><a href="#1、Sobel和schar" class="headerlink" title="1、Sobel和schar"></a>1、Sobel和schar</h1><p>Sobel 算子是高斯平滑与微分操作的结合体，所以它的抗噪声能力很好。你可以设定求导的方（xorder 或 yorder）。还可以设定使用的卷积核的大小（ksize）。如果 ksize=-1，会使用 3x3 的 Scharr 滤波器，它的的效果要比 3x3 的 Sobel 滤波器好（而且速度相同，所以在使用 3x3 滤波器时应该尽<br>量使用 Scharr 滤波器）。 3x3 的 Scharr 滤波器卷积核如下：<br><img src="http://i.imgur.com/TNlGBTY.png" alt="高斯滤波"></p>
+<h1 id="2、Laplacian算子"><a href="#2、Laplacian算子" class="headerlink" title="2、Laplacian算子"></a>2、Laplacian算子</h1><p>拉普拉斯算子可以使用二阶导数的形式定义，可假设其离散实现类似于二阶 Sobel 导数，事实上， OpenCV 在计算拉普拉斯算子时直接调用 Sobel 算子。计算公式如下：<br><img src="http://i.imgur.com/xHIqbIq.png" alt="拉普拉斯"></p>
+<h1 id="3、范例程序"><a href="#3、范例程序" class="headerlink" title="3、范例程序"></a>3、范例程序</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line">img=cv2.imread(<span class="string">'pic.png'</span>,<span class="number">0</span>)</span><br><span class="line"><span class="comment">#cv2.CV_64F 输出图像的深度（数据类型），可以使用-1, 与原图像保持一致 np.uint8</span></span><br><span class="line">laplacian=cv2.Laplacian(img,cv2.CV_64F)</span><br><span class="line"><span class="comment"># 参数 1,0 为只在 x 方向求一阶导数，最大可以求 2 阶导数。</span></span><br><span class="line">sobelx=cv2.Sobel(img,cv2.CV_64F,<span class="number">1</span>,<span class="number">0</span>,ksize=<span class="number">5</span>)</span><br><span class="line"><span class="comment"># 参数 0,1 为只在 y 方向求一阶导数，最大可以求 2 阶导数。</span></span><br><span class="line">sobely=cv2.Sobel(img,cv2.CV_64F,<span class="number">0</span>,<span class="number">1</span>,ksize=<span class="number">5</span>)</span><br><span class="line">plt.subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>),plt.imshow(img,cmap = <span class="string">'gray'</span>)</span><br><span class="line">plt.title(<span class="string">'Original'</span>), plt.xticks([]), plt.yticks([])</span><br><span class="line">plt.subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>),plt.imshow(laplacian,cmap = <span class="string">'gray'</span>)</span><br><span class="line">plt.title(<span class="string">'Laplacian'</span>), plt.xticks([]), plt.yticks([])</span><br><span class="line">plt.subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>),plt.imshow(sobelx,cmap = <span class="string">'gray'</span>)</span><br><span class="line">plt.title(<span class="string">'Sobel X'</span>), plt.xticks([]), plt.yticks([])</span><br><span class="line">plt.subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">4</span>),plt.imshow(sobely,cmap = <span class="string">'gray'</span>)</span><br><span class="line">plt.title(<span class="string">'Sobel Y'</span>), plt.xticks([]), plt.yticks([])</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>效果<br><img src="http://i.imgur.com/3vu7bI1.png" alt="效果"></p>
+</blockquote>
+<p>在查看上面这个例子的注释时不知道你有没有注意到：当我们可以通过参数 -1 来设定输出图像的深度（数据类型）与原图像保持一致，但是我们在代码中使用的却是 cv2.CV_64F。这是为什么呢？想象一下一个从黑到白的边界的导数是整数，而一个从白到黑的边界点导数却是负数。如果原图像的深度是np.int8 时，所有的负值都会被截断变成 0，换句话说就是把把边界丢失掉。所以如果这两种边界你都想检测到，最好的的办法就是将输出的数据类型设置的更高，比如 cv2.CV_16S， cv2.CV_64F 等。</p>
 
-常用的几个梯度函数： cv2.Sobel()， cv2.Schar()， c
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/图像梯度.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
       
     </div>
 	<div align="center">
   
+    <div class="copyright">
+    <p><span>
+    <b>本文地址：</b><a href="/图像梯度.html" title="图像梯度">http://whykifan.tk/图像梯度.html</a><br /><b>转载请注明出处，谢谢！</b>
+    </span></p>
+    </div>
+  
 	</div>
     <div>
+      
+        
       
     </div>
 
     <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>您的支持是我不断创作的动力！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://7xvek8.com1.z0.glb.clouddn.com/wechatpay.jpg" alt="whykifan WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="http://7xvek8.com1.z0.glb.clouddn.com/alipay.jpg" alt="whykifan Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/毕业.html" itemprop="url">
-                  毕业
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-12T07:04:39+08:00" content="2016-06-12">
-              2016-06-12
-            </time>
-          </span>
-			
+        <div class="post-tags">
           
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/毕业/" itemprop="url" rel="index">
-                    <span itemprop="name">毕业</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/毕业.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="毕业.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
+            <a href="/tags/opencv/" rel="tag">#opencv</a>
           
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-          上天给人一份困难时，同时也给人一份智慧。转眼间大学四年就要结束，真心祝愿所有毕业的学长学姐们在未来的路上越走越好。
-附上学校金鱼照一张O(∩_∩)O：  
-
-
-          
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/毕业.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/opencv-threshold.html" rel="next" title="opencv_threshold">
+                <i class="fa fa-chevron-left"></i> opencv_threshold
+              </a>
+            
           </div>
-        
-      
-    </div>
-	<div align="center">
-  
-	</div>
-    <div>
-      
-    </div>
 
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+          <div class="post-nav-prev post-nav-item">
             
-            
-              
-                
-                <a class="post-title-link" href="/颜色空间.html" itemprop="url">
-                  颜色空间
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-05-01T17:26:45+08:00" content="2017-05-01">
-              2017-05-01
-            </time>
-          </span>
-			
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/颜色空间.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="颜色空间.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-          OpenCV中有超过150种颜色空间转换方法。但是使用最为广泛的空间只有BGR、GRAY、HSV三种，下面介绍下这几种空间：
-
-HSV空间:HSV(Hue, Saturation, Value)是根据颜色的直观特性由A. R. Smith在1978年创建的一种颜色空间, 也称六角锥体模型(Hexcone Model)。这个模型中颜色的参数分别是：色调（H），饱和度（S），明度（V）。在opencv
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/颜色空间.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-	<div align="center">
-  
-	</div>
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-      
 
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/网络爬虫爬取妹子图.html" itemprop="url">
-                  网络爬虫爬取妹子图
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-05-01T17:06:06+08:00" content="2017-05-01">
-              2017-05-01
-            </time>
-          </span>
-			
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index">
-                    <span itemprop="name">python</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/网络爬虫爬取妹子图.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="网络爬虫爬取妹子图.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          直接上代码123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293#coding=utf-8impor
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/网络爬虫爬取妹子图.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
+    <div class="post-spread">
       
     </div>
-	<div align="center">
-  
-	</div>
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/KNN算法.html" itemprop="url">
-                  KNN算法
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-04-18T22:28:19+08:00" content="2017-04-18">
-              2017-04-18
-            </time>
-          </span>
-			
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/opencv/" itemprop="url" rel="index">
-                    <span itemprop="name">opencv</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/KNN算法.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="KNN算法.html" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          k近邻（K-Nearest Neighbour）算法概念:
-
-简单理解：&gt;1-　上图中的对象可以分成两组，蓝色方块和红色三角。每一组也可以称为一个类。我们可以把所有的这些对象看成是一个城镇中房子，而所有的房子分别属于蓝色和红色家族，而这个城镇就是所谓的特征空间。（你可以把一个特征空间看成是所有点的投影所在的空间。例如在一个 2D 的坐标空间中，每个数据都两个特征 x 坐标和 y 坐标，你可以
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/KNN算法.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-	<div align="center">
-  
-	</div>
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
+  </div>
 
 
           </div>
@@ -1121,6 +678,14 @@ HSV空间:HSV(Hue, Saturation, Value)是根据颜色的直观特性由A. R. Smit
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="图像梯度.html"
+           data-title="图像梯度" data-url="http://whykifan.tk/图像梯度.html">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -1140,8 +705,17 @@ HSV空间:HSV(Hue, Saturation, Value)是根据颜色的直观特性由A. R. Smit
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -1218,6 +792,17 @@ HSV空间:HSV(Hue, Saturation, Value)是根据颜色的直观特性由A. R. Smit
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1、Sobel和schar"><span class="nav-number">1.</span> <span class="nav-text">1、Sobel和schar</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2、Laplacian算子"><span class="nav-number">2.</span> <span class="nav-text">2、Laplacian算子</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3、范例程序"><span class="nav-number">3.</span> <span class="nav-text">3、范例程序</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -1359,6 +944,10 @@ var _hmt = _hmt || [];
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
